@@ -1,0 +1,28 @@
+/** @format */
+.table tr td {
+  border-top: 1px solid #9E9D9D;
+  border-bottom: 1px solid #9E9D9D;
+  padding: 10px;
+}
+.table tr td img {
+  width: 45px;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+}
+.table tr td .label .name {
+  font-weight: bolder;
+}
+.table tr td .label .type {
+  color: #9E9D9D;
+}
+.table tr td .stock {
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+.table tr td .price {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}/*# sourceMappingURL=listStyle.module.css.map */

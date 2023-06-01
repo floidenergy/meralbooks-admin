@@ -1,0 +1,89 @@
+// @import "../css/fonts.scss";
+@import "../sass/utilities/variable.scss";
+@import "../sass/utilities/fonts.scss";
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nexa';
+    font-size : clamp(1rem, 1rem, 8rem);
+
+}
+
+body{
+    background-color: var(--dark-white);
+}
+
+/************************ TEXT FORMAT ********************/
+
+.lighter{
+    font-family: lighter;
+}
+
+.bolder{
+    font-weight: bolder;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+/************************ COLORS ********************/
+
+.purple{
+    color: $purple;
+}
+
+.black{
+    color: $black;
+}
+
+.gray{
+    color: $gray;
+}
+
+.white{
+    color: $white;
+}
+
+.dark-white{
+    color: $dark-white;
+}
+
+.b-purple{
+    background-color: $purple;
+}
+
+.b-black{
+    background-color: $black;
+}
+
+.b-gray{
+    background-color: $gray;
+}
+
+.b-white{
+    background-color: $white;
+}
+
+.b-dark-white{
+    background-color: $dark-white;
+}
+
+/************************  ********************/
+
+.button{
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 1s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+}

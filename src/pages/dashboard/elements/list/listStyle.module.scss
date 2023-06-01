@@ -1,0 +1,43 @@
+/** @format */
+
+@import '../../../../sass/utilities/variable.scss';
+
+.table {
+  
+  tr {
+		
+		td {
+      border-top: 1px solid $gray;
+			border-bottom: 1px solid $gray;
+			padding: 10px;
+
+			img {
+				width: 45px;
+				aspect-ratio: 1;
+				object-fit: cover;
+				border-radius: 100%;
+			}
+
+			.label {
+				.name {
+					font-weight: bolder;
+				}
+
+				.type {
+					color: $gray;
+				}
+			}
+
+			.stock {
+				color: white;
+				padding: 2px 5px;
+				border-radius: 5px;
+			}
+
+			.price {
+				font-weight: bolder;
+				font-size: 1.5rem;
+			}
+		}
+	}
+}

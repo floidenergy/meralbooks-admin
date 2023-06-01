@@ -1,0 +1,10 @@
+.BooksRegistrer{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: end; */
+    align-items: flex-start;
+}
+
+.BooksRegistrer > *{
+    margin: 10px;
+}

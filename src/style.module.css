@@ -1,0 +1,21 @@
+/** @format */
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.main .containerData {
+  background-color: #f1f0f0;
+  padding: 25px;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+/**
+* Module not found: Error: Can't resolve
+  './../../  css/adminNavbar.module.css' in 'D:\meral-books\admin\src\elements\navbar'
+*
+* Module not found: Error: Can't resolve
+  '../../../../css/listStyle.module.css' in 'D:\meral-books\admin\src\pages\dashboard\elements\list'
+*//*# sourceMappingURL=style.module.css.map */

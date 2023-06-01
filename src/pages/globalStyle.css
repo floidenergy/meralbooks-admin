@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "Nexa";
+  src: url("../font/Nexa-Heavy.ttf") format("truetype");
+  font-weight: bolder;
+}
+@font-face {
+  font-family: "Nexa";
+  src: url("../font/Nexa Bold.otf") format("opentype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Nexa";
+  src: url("../font/Nexa-ExtraLight.ttf") format("opentype");
+  font-weight: lighter;
+}
+@font-face {
+  font-family: "Nexa";
+  src: url("../font/Nexa Regular.otf") format("opentype");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nexa";
+  font-size: 1rem;
+}
+
+body {
+  background-color: var(--dark-white);
+}
+
+/************************ TEXT FORMAT ********************/
+.lighter {
+  font-family: lighter;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/************************ COLORS ********************/
+.purple {
+  color: #7e2061;
+}
+
+.black {
+  color: #5D595A;
+}
+
+.gray {
+  color: #9E9D9D;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
+.dark-white {
+  color: #f1f0f0;
+}
+
+.b-purple {
+  background-color: #7e2061;
+}
+
+.b-black {
+  background-color: #5D595A;
+}
+
+.b-gray {
+  background-color: #9E9D9D;
+}
+
+.b-white {
+  background-color: #FFFFFF;
+}
+
+.b-dark-white {
+  background-color: #f1f0f0;
+}
+
+/************************  ********************/
+.button {
+  font-size: large;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  transition: 1s ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}/*# sourceMappingURL=globalStyle.css.map */

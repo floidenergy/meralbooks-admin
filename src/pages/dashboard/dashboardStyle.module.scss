@@ -1,0 +1,33 @@
+@import '../../sass/utilities/variable.scss';
+
+.main{
+  .monthlyState{
+    .title{
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+    }
+    .cards{
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  }
+  .weeklyState{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    .chart{
+      width: 50%;
+      canvas{
+        // width: 500px;
+        min-width: 100%;
+      }
+    }
+    .topProduct{
+      // background-color: red;
+      
+    }
+  }
+}

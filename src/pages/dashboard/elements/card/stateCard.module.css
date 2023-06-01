@@ -1,0 +1,35 @@
+.card {
+  padding: 10px;
+  border-radius: 10px;
+  width: 22%;
+  color: black;
+  background-color: white;
+  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+.card .header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.card .header .label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+.card .header .percentage {
+  border: 1px solid white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.card .amount {
+  font-size: 1.5rem;
+  color: #9E9D9D;
+  margin-top: 15px;
+}/*# sourceMappingURL=stateCard.module.css.map */

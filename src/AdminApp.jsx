@@ -2,7 +2,14 @@
 // #and this one too: https://demo.evershop.io/
 
 import React, { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import {
+  Routes,
+  Router,
+  Route,
+  useNavigate,
+  useLocation,
+  Switch
+} from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import Navbar from './elements/navbar/Navbar'
@@ -15,8 +22,9 @@ import style from './style.module.css'
 
 import Dashboard from './pages/dashboard/Dashboard'
 import Books from './pages/books/Books'
-import NewBook from './pages/books/new/new'
+import NewBook from './pages/books/new/newBook'
 import Categories from './pages/categories/Categories'
+import Authors from './pages/authors/Authors'
 import Collection from './pages/collection/Collection'
 import Coupons from './pages/coupons/Coupons'
 
@@ -37,29 +45,24 @@ const AdminApp = () => {
   }, [location.pathname])
 
   return (
-    <main
-      className={
-        shouldRenderNavbar
-          ? style.main
-          : {}
-      }
-    >
+    <div className={shouldRenderNavbar ? style.containerData : {}}>
       {shouldRenderNavbar && <Navbar />}
-      <div className={style.containerData}>
+      <main className={style.main}>
         <Routes>
-          <Route path='/Login' element={<Login />} />
-          <Route path='/'>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/books' element={<Books />} />
-            <Route path='/books/new' element={<NewBook />} />
-            <Route path='/Categories' element={<Categories />} />
-            <Route path='/Collection' element={<Collection />} />
-            <Route path='/Coupons' element={<Coupons />} />
-            <Route path='/Logout' element={<Logout />} />
-          </Route>
+            <Route path='/Login' element={<Login />} />
+            <Route path='/'>
+              <Route path='/' element={<Dashboard />} />
+              <Route path='books' element={<Books />} />
+              <Route path='books/new' element={<NewBook />} />
+              <Route path='Categories/*' element={<Categories />} />
+              <Route path='Authors/*' element={<Authors />} />
+              <Route path='Collection/*' element={<Collection />} />
+              <Route path='Coupons/*' element={<Coupons />} />
+              <Route path='Logout' element={<Logout />} />
+            </Route>
         </Routes>
-      </div>
-    </main>
+      </main>
+    </div>
   )
 }
 

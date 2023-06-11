@@ -1,24 +1,28 @@
+/**
+ * ---------------------------------------------
+ *
+ * @format
+ */
 /*---------------------------------------------*/
 /*---------------------------------------------*/
-/*---------------------------------------------*/
-input {
+.main input {
   background-color: unset !important;
   outline: none;
   border: none;
 }
-input:focus::-webkit-input-placeholder {
+.main input:focus::-webkit-input-placeholder {
   color: transparent;
 }
-input:focus:-moz-placeholder {
+.main input:focus:-moz-placeholder {
   color: transparent;
 }
-input:focus::-moz-placeholder {
+.main input:focus::-moz-placeholder {
   color: transparent;
 }
-input:focus:-ms-input-placeholder {
+.main input:focus:-ms-input-placeholder {
   color: transparent;
 }
-input:-webkit-autofill, input:-webkit-autofill:focus {
+.main input:-webkit-autofill, .main input:-webkit-autofill:focus {
   -webkit-appearance: none;
           appearance: none;
   background-image: unset;
@@ -26,109 +30,97 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
   -webkit-transition: background-color 600000s 0s, color 600000s 0s !important;
   transition: background-color 600000s 0s, color 600000s 0s !important;
 }
-input:-internal-autofill-selected {
+.main input:-internal-autofill-selected {
   background-color: green !important;
 }
-input::-webkit-input-placeholder {
+.main input::-webkit-input-placeholder {
   color: #999999;
 }
-input:-moz-placeholder {
+.main input:-moz-placeholder {
   color: #999999;
 }
-input::-moz-placeholder {
+.main input::-moz-placeholder {
   color: #999999;
 }
-input:-ms-input-placeholder {
+.main input:-ms-input-placeholder {
   color: #999999;
 }
-
-textarea {
+.main textarea {
   outline: none;
   border: none;
 }
-textarea:focus {
+.main textarea:focus {
   border-color: transparent !important;
 }
-textarea:focus::-webkit-input-placeholder {
+.main textarea:focus::-webkit-input-placeholder {
   color: transparent;
 }
-textarea:focus:-moz-placeholder {
+.main textarea:focus:-moz-placeholder {
   color: transparent;
 }
-textarea:focus::-moz-placeholder {
+.main textarea:focus::-moz-placeholder {
   color: transparent;
 }
-textarea:focus:-ms-input-placeholder {
+.main textarea:focus:-ms-input-placeholder {
   color: transparent;
 }
-textarea::-webkit-input-placeholder {
+.main textarea::-webkit-input-placeholder {
   color: #999999;
 }
-textarea:-moz-placeholder {
+.main textarea:-moz-placeholder {
   color: #999999;
 }
-textarea::-moz-placeholder {
+.main textarea::-moz-placeholder {
   color: #999999;
 }
-textarea:-ms-input-placeholder {
+.main textarea:-ms-input-placeholder {
   color: #999999;
 }
-
-label {
+.main label {
   display: block;
   margin: 0;
 }
-
-button {
+.main button {
   outline: none !important;
   border: none;
 }
-button:hover {
+.main button:hover {
   cursor: pointer;
 }
-
-iframe {
+.main iframe {
   border: none !important;
 }
-
-.txt1 {
+.main .txt1 {
   font-size: 13px;
   line-height: 1.4;
   color: #555555;
 }
-
-.txt2 {
+.main .txt2 {
   font-size: 13px;
   line-height: 1.4;
   color: #999999;
 }
-
-.size1 {
+.main .size1 {
   width: 355px;
   max-width: 100%;
 }
-
-.size2 {
+.main .size2 {
   width: calc(100% - 43px);
 }
-
-.bg1 {
+.main .bg1 {
   background: #3b5998;
 }
-
-.bg2 {
+.main .bg2 {
   background: #1da1f2;
 }
-
-.bg3 {
+.main .bg3 {
   background: #cd201f;
 }
-
-.limiter {
+.main .limiter {
   width: 100%;
   margin: 0 auto;
 }
-.limiter .container-login100 {
+.main .limiter .container-login100 {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -137,7 +129,7 @@ iframe {
   align-items: center;
   background: #f2f2f2;
 }
-.limiter .wrap-login100 {
+.main .limiter .wrap-login100 {
   width: 100%;
   background: #fff;
   overflow: hidden;
@@ -146,7 +138,7 @@ iframe {
   align-items: stretch;
   flex-direction: row-reverse;
 }
-.limiter .login100-more {
+.main .limiter .login100-more {
   width: calc(100% - 560px);
   background-repeat: no-repeat;
   background-size: cover;
@@ -154,7 +146,7 @@ iframe {
   position: relative;
   z-index: 1;
 }
-.limiter .login100-more::before {
+.main .limiter .login100-more::before {
   content: "";
   display: block;
   position: absolute;
@@ -165,7 +157,7 @@ iframe {
   left: 0;
   background: rgba(0, 0, 0, 0.1);
 }
-.limiter .login100-form {
+.main .limiter .login100-form {
   width: 560px;
   min-height: 100vh;
   background-color: #f7f7f7;
@@ -176,7 +168,7 @@ iframe {
   align-items: center;
   justify-content: center;
 }
-.limiter .login100-form-title {
+.main .limiter .login100-form-title {
   width: 100%;
   color: red;
   display: block;
@@ -187,7 +179,7 @@ iframe {
   line-height: 1.2;
   text-align: center;
 }
-.limiter .wrap-input100 {
+.main .limiter .wrap-input100 {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -198,7 +190,7 @@ iframe {
   border-radius: 10px;
   margin-bottom: 10px;
 }
-.limiter .label-input100 {
+.main .limiter .label-input100 {
   font-size: 18px;
   color: #999999;
   line-height: 1.2;
@@ -211,7 +203,7 @@ iframe {
   top: 30px;
   transition: all 0.4s;
 }
-.limiter .input100 {
+.main .limiter .input100 {
   display: block;
   width: 100%;
   background: transparent;
@@ -220,23 +212,23 @@ iframe {
   line-height: 1.2;
   padding: 0 26px;
 }
-.limiter .input100:focus {
+.main .limiter .input100:focus {
   height: 48px;
 }
-.limiter .input100:focus + .focus-input100 {
+.main .limiter .input100:focus + .focus-input100 {
   visibility: visible;
   opacity: 1;
   transform: scale(1);
 }
-.limiter .input100:focus + .focus-input100 + .label-input100 {
+.main .limiter .input100:focus + .focus-input100 + .label-input100 {
   top: 14px;
   font-size: 13px;
 }
-.limiter input.input100 {
+.main .limiter input.input100 {
   height: 100%;
   transition: all 0.4s;
 }
-.limiter .focus-input100 {
+.main .limiter .focus-input100 {
   position: absolute;
   display: block;
   width: calc(100% + 2px);
@@ -251,25 +243,25 @@ iframe {
   transition: all 0.4s;
   transform: scaleX(1.1) scaleY(1.3);
 }
-.limiter .eff-focus-selection {
+.main .limiter .eff-focus-selection {
   visibility: visible;
   opacity: 1;
   transform: scale(1);
 }
-.limiter .has-val {
+.main .limiter .has-val {
   height: 48px !important;
 }
-.limiter .has-val + .focus-input100 + .label-input100 {
+.main .limiter .has-val + .focus-input100 + .label-input100 {
   top: 14px;
   font-size: 13px;
 }
-.limiter .input-checkbox100 {
+.main .limiter .input-checkbox100 {
   display: none;
 }
-.limiter .input-checkbox100:checked + .label-checkbox100::before {
+.main .limiter .input-checkbox100:checked + .label-checkbox100::before {
   color: #6675df;
 }
-.limiter .label-checkbox100 {
+.main .limiter .label-checkbox100 {
   font-size: 13px;
   color: #999999;
   line-height: 1.4;
@@ -278,7 +270,7 @@ iframe {
   padding-left: 26px;
   cursor: pointer;
 }
-.limiter .label-checkbox100::before {
+.main .limiter .label-checkbox100::before {
   content: "\f00c";
   font-size: 13px;
   color: transparent;
@@ -295,13 +287,13 @@ iframe {
   top: 50%;
   transform: translateY(-50%);
 }
-.limiter .container-login100-form-btn {
+.main .limiter .container-login100-form-btn {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.limiter .login100-form-btn {
+.main .limiter .login100-form-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -316,13 +308,13 @@ iframe {
   letter-spacing: 1px;
   transition: all 0.4s;
 }
-.limiter .login100-form-btn:hover {
+.main .limiter .login100-form-btn:hover {
   background: #333333;
 }
-.limiter .validate-input {
+.main .limiter .validate-input {
   position: relative;
 }
-.limiter .alert-validate::before {
+.main .limiter .alert-validate::before {
   content: attr(data-validate);
   position: absolute;
   z-index: 100;
@@ -343,7 +335,7 @@ iframe {
   opacity: 0;
   transition: opacity 0.4s;
 }
-.limiter .alert-validate::after {
+.main .limiter .alert-validate::after {
   content: "\f12a";
   display: block;
   position: absolute;
@@ -354,43 +346,43 @@ iframe {
   transform: translateY(-50%);
   right: 18px;
 }
-.limiter .alert-validate:hover:before {
+.main .limiter .alert-validate:hover:before {
   visibility: visible;
   opacity: 1;
 }
-.limiter .Banner {
+.main .limiter .Banner {
   background-image: linear-gradient(rgba(126, 32, 97, 0.8) 35%, rgba(126, 32, 97, 0.8)), url("../../images/loginBanner.jpg");
 }
-.limiter .container-error {
+.main .limiter .container-error {
   text-align: center;
   color: red;
   margin-top: 25px;
   font-weight: bold;
 }
 @media (max-width: 992px) {
-  .limiter .login100_form {
+  .main .limiter .login100_form {
     width: 50%;
     padding-left: 30px;
     padding-right: 30px;
   }
-  .limiter .login100_more {
+  .main .limiter .login100_more {
     width: 50%;
   }
-  .limiter .alert_validate::before {
+  .main .limiter .alert_validate::before {
     visibility: visible;
     opacity: 1;
   }
 }
 @media (max-width: 768px) {
-  .limiter .login100-form {
+  .main .limiter .login100-form {
     width: 100%;
   }
-  .limiter .login100-more {
+  .main .limiter .login100-more {
     display: none;
   }
 }
 @media (max-width: 576px) {
-  .limiter .login100-form {
+  .main .limiter .login100-form {
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 70px;

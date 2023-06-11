@@ -35,16 +35,13 @@ function Login () {
 
 		try {
 			const res = await axios.post(
-        'http://localhost:3001/login',
+        'http://localhost:3001/admin/login',
         formData,
         {
           withCredentials: true
         }
       )
-
-			console.log(res);
 			dispatcher(login(res.data));
-			
 			navigate('/');
 
 		} catch (err) {
@@ -64,7 +61,7 @@ function Login () {
 	}
 
   return (
-    <div>
+    <div className={style.main}>
 			
       <div className={style.limiter}>
         <div className={style['container-login100']}>

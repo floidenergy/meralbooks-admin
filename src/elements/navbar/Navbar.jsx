@@ -6,7 +6,8 @@ import {
   BsArchiveFill,
   BsLink45Deg,
   BsTagFill,
-  BsEasel2Fill
+  BsEasel2Fill,
+  BsPen
 } from 'react-icons/bs'
 import { TiThMenu } from 'react-icons/ti'
 import { GiBookCover } from 'react-icons/gi'
@@ -72,6 +73,11 @@ export default function Navbar () {
             <li>
               <Link to='/categories'>
                 <BsLink45Deg /> categories
+              </Link>
+            </li>
+            <li>
+              <Link to='/authors'>
+                <BsPen /> Authors
               </Link>
             </li>
             <li>

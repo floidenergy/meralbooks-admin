@@ -1,0 +1,21 @@
+header {
+  background-color: #7e2061;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+header .title {
+  color: #FFFFFF;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  text-decoration-color: #7e2061;
+  padding-right: 5px;
+}
+header .navB {
+  text-decoration: underline;
+  border: 1px solid #FFFFFF;
+  padding: 5px 10px;
+}/*# sourceMappingURL=style.module.css.map */

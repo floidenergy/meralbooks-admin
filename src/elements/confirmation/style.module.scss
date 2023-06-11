@@ -1,0 +1,32 @@
+@import '../../sass/utilities/variable.scss';
+
+.confContainer{
+  position: absolute;
+  top:0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.321);
+  width: 100vw;
+  height: 100vh;
+
+  .confCard{
+    position: inherit;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background-color: $white;
+    width: 40%;
+    height: max-content;
+    padding: 10px;
+    .header{
+      text-align: center;
+      font-weight: bold;
+      font-size: larger;
+      margin-bottom: 25px;
+    }
+    .options{
+      padding: 10px 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

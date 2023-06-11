@@ -1,0 +1,30 @@
+.confContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.321);
+  width: 100vw;
+  height: 100vh;
+}
+.confContainer .confCard {
+  position: inherit;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  background-color: #FFFFFF;
+  width: 40%;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 10px;
+}
+.confContainer .confCard .header {
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  margin-bottom: 25px;
+}
+.confContainer .confCard .options {
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=style.module.css.map */

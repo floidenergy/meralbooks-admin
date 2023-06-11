@@ -1,0 +1,23 @@
+@import "../../../sass/utilities/variable.scss";
+
+header {
+  background-color: $purple;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  .title {
+    color: $white;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-decoration-color: $purple;
+    padding-right: 5px;
+  }
+  .navB {
+    text-decoration: underline;
+    border: 1px solid $white;
+    padding: 5px 10px;
+  }
+}

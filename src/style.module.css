@@ -1,20 +1,25 @@
 /** @format */
-.main {
+.containerData {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
-.main .containerData {
+.containerData .main {
   background-color: #f1f0f0;
   padding: 25px;
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
 }
+@media screen and (max-width: 700px) {
+  .containerData .main {
+    padding-top: 75px;
+  }
+}
 
 /**
 * Module not found: Error: Can't resolve
-  './../../  css/adminNavbar.module.css' in 'D:\meral-books\admin\src\elements\navbar'
+  './../../css/adminNavbar.module.css' in 'D:\meral-books\admin\src\elements\navbar'
 *
 * Module not found: Error: Can't resolve
   '../../../../css/listStyle.module.css' in 'D:\meral-books\admin\src\pages\dashboard\elements\list'

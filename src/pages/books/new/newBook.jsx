@@ -8,62 +8,44 @@ import bookSkilteon from '../../../images/book.jpg'
 const NewBook = () => {
   const [bookPicture, setBookPicture] = useState(bookSkilteon)
 
-  // const fr = new FileReader();
-
-  // fr.onload = () =>{
-  //     setBookPicture(fr.result);
-  //     console.log(fr.result);
-  // }
-
-  // const handleFileChange = async (e) => {
-  //     fr.readAsDataURL(e.target.files[0]);
-  // }
+  const handleFileChange = async (e) => {
+    setBookPicture(URL.createObjectURL(e.target.files[0]))
+  }
 
   const handleSubmit = async e => {
     e.preventDefault()
-    // const formData = new FormData(e.target);
-    const formData = Object.fromEntries(new FormData(e.currentTarget).entries())
 
-    // formData.append('bookPicture', bookPicture)
-    // for (let index = 0; index < e.target.length; index++) {
-    //   const eData = e.target[index]
-
-    //   if (eData.type === 'submit') continue
-
-    //   formData.append(eData.name, eData.value)
-    // }
-
-    console.log(formData)
+    const formData = new FormData(e.currentTarget)
 
     try {
       const response = await axios.post(
-        'http://localhost:3001/admin/books',
+        'http://localhost:3001/admin/book',
         formData,
         { withCredentials: true }
       )
 
-      console.log(response.data)
+      //TODO: MAKE A RESPOND DISPLAY MESSAGE
     } catch (err) {
       console.log(err)
     }
   }
 
   return (
-    <div>
+    <main>
       <form className='BooksRegistrer' onSubmit={handleSubmit}>
         <label htmlFor='bookPicture'>
-          <img src={bookPicture} alt='' />
+          <img src={bookPicture} alt='' width={400}/>
         </label>
         <input
           type='file'
           name='bookPicture'
           id='bookPicture'
           style={{ display: 'none' }}
-          //   onChange={handleFileChange}
+          onChange={handleFileChange}
           required
         />
         <input type='text' name='name' placeholder='Book name' required />
-        <input
+        <textarea
           type='text'
           name='description'
           placeholder="Book's Description"
@@ -72,16 +54,16 @@ const NewBook = () => {
         <input
           type='text'
           name='author'
-          id=''
           placeholder="Book's Writer"
           required
         />
-        <select name='language' id='' required>
+        <select name='language' required>
           <option value='Arabic'>Arabic</option>
           <option value='French'>French</option>
           <option value='English'>English</option>
         </select>
-        <select name='Category' id=''>
+
+        <select name='category' id=''>
           <option>Select Category</option>
           <option value='STORY'>Story</option>
           <option value='SD'>Self Developement</option>
@@ -89,25 +71,17 @@ const NewBook = () => {
           <option value='PHYLOSOPHY'>Phylosophy</option>
         </select>
 
-        <select name='availability' id=''>
-          <option>Select Availability</option>
-          <option value={true}>available</option>
-          <option value={false}>unavailable</option>
-        </select>
-
-        <input type='number' name='quantity' placeholder='Quantity' required />
         <input
           type='number'
           name='price'
-          value='1500'
-          onChange={e => e.target}
+          defaultValue='1500'
           placeholder='price'
           required
         />
 
-        <input type='submit' value='Register' />
+        <input type='submit' value='Add' />
       </form>
-    </div>
+    </main>
   )
 }
 

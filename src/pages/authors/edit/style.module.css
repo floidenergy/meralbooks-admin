@@ -1,0 +1,142 @@
+/** @format */
+.header a {
+  position: relative;
+  padding: 8px 20px;
+}
+.header a svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+
+.authorProfile {
+  margin-top: 25px;
+  background-color: #FFFFFF;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+.authorProfile .profileImage {
+  height: 100%;
+  width: 50%;
+}
+.authorProfile .profileImage label {
+  height: 100%;
+}
+.authorProfile .profileImage label img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 9/16;
+}
+.authorProfile .profileImage input {
+  display: none;
+}
+.authorProfile .authorInfo {
+  width: 100%;
+}
+.authorProfile .authorInfo .name {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #7e2061;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2vw;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+}
+.authorProfile .authorInfo .flexDiv {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+.authorProfile .authorInfo .flexDiv .label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7e2061;
+  text-decoration: underline;
+  text-align: center;
+}
+.authorProfile .authorInfo .flexDiv .leftSide {
+  width: 100%;
+}
+.authorProfile .authorInfo .flexDiv .leftSide input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1f0f0;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+.authorProfile .authorInfo .flexDiv .rightSide {
+  width: 100%;
+}
+.authorProfile .authorInfo .flexDiv .rightSide textarea {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1f0f0;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: capitalize;
+  resize: vertical;
+}
+.authorProfile .authorInfo .resMsg {
+  text-align: center;
+  margin: 10px 0;
+}
+.authorProfile .authorInfo .submitBtn {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.authorProfile .authorInfo .delButton {
+  width: 100%;
+}
+@media screen and (max-width: 900px) {
+  .authorProfile {
+    flex-direction: column;
+    align-items: center;
+  }
+  .authorProfile .profileImage {
+    width: 100%;
+  }
+  .authorProfile .profileImage img {
+    aspect-ratio: 1;
+    border-radius: 10px;
+  }
+  .authorProfile .authorInfo .name {
+    max-width: none;
+    -webkit-text-decoration: underline #7e2061;
+            text-decoration: underline #7e2061;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 900px) and (max-width: 520px) {
+  .authorProfile .authorInfo .flexDiv {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+  }
+  .authorProfile .authorInfo .flexDiv .leftSide {
+    width: 100%;
+  }
+  .authorProfile .authorInfo .flexDiv .rightSide {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.module.css.map */

@@ -1,0 +1,98 @@
+/** @format */
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header a {
+  position: relative;
+  padding: 8px 20px;
+}
+.header a svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+
+.authorProfile {
+  margin-top: 25px;
+  background-color: #FFFFFF;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+.authorProfile .profileImage {
+  height: 100%;
+  width: 50%;
+}
+.authorProfile .profileImage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.authorProfile .authorInfo {
+  width: 100%;
+}
+.authorProfile .authorInfo .name {
+  font-weight: bold;
+  font-size: 5vw;
+  word-wrap: normal;
+  max-width: -moz-min-content;
+  max-width: min-content;
+  text-transform: capitalize;
+}
+.authorProfile .authorInfo .flexDiv {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.authorProfile .authorInfo .flexDiv .label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7e2061;
+  text-decoration: underline;
+}
+.authorProfile .authorInfo .flexDiv .leftSide {
+  width: 30%;
+}
+.authorProfile .authorInfo .flexDiv .rightSide {
+  width: 65%;
+}
+@media screen and (max-width: 900px) {
+  .authorProfile {
+    flex-direction: column;
+    align-items: center;
+  }
+  .authorProfile .profileImage {
+    width: 100%;
+  }
+  .authorProfile .profileImage img {
+    aspect-ratio: 1;
+    border-radius: 10px;
+  }
+  .authorProfile .authorInfo .name {
+    max-width: none;
+    -webkit-text-decoration: underline #7e2061;
+            text-decoration: underline #7e2061;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 7vw;
+  }
+}
+@media screen and (max-width: 900px) and (max-width: 520px) {
+  .authorProfile .authorInfo .flexDiv {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+  }
+  .authorProfile .authorInfo .flexDiv .leftSide {
+    width: 100%;
+  }
+  .authorProfile .authorInfo .flexDiv .rightSide {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.module.css.map */

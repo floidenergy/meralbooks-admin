@@ -8,23 +8,12 @@ import ConfirmationNotif from '../../../elements/confirmation/ConfirmationNotif'
 
 import style from './style.module.css'
 
-/**
- * {
- * "_id": "647ef150b7ed0717e9e112b6",
- * "img": "http://localhost:3001/author/Author-1686040912253.jpg",
- * "name": "hdaydi man",
- * "bio": "win yedkhol f salla ihes ruho howa chikorha",
- * "dob": "1996-06-12T00:00:00.000Z",
- * "books": []
- * }
- */
-
 export default function EditAuthors () {
   const [author, setAuthor] = useState({})
   const [authorPic, setAuthorPic] = useState()
   const [dob, setDob] = useState('')
   const [delNotif, setDelNotif] = useState(false)
-  const [ResponseMessage, setResponseMessage] = useState('Success')
+  const [ResponseMessage, setResponseMessage] = useState('')
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -152,7 +141,7 @@ export default function EditAuthors () {
       </form>
       {delNotif && (
         <ConfirmationNotif
-          message={`Are you sure you wanna delete "${author.name}"`}
+          message={`Are you sure you wanna delete "${author.name}", This action will delete all books that is assigned to this author`}
           Options={[
             {
               value: 'yes',
@@ -163,6 +152,7 @@ export default function EditAuthors () {
                     `http://localhost:3001/admin/author/${author._id}`,
                     { withCredentials: true }
                   )
+                  console.log(result);
                   if (result.status === 204) {
                     navigate('/authors');
                   }else{

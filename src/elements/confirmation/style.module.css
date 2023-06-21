@@ -22,9 +22,13 @@
   font-weight: bold;
   font-size: larger;
   margin-bottom: 25px;
+  text-transform: capitalize;
 }
 .confContainer .confCard .options {
   padding: 10px 25px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+.confContainer .confCard .options input {
+  min-width: 75px;
 }/*# sourceMappingURL=style.module.css.map */

@@ -12,10 +12,11 @@ const Logout = () => {
   useEffect(() => {
 
     axios.get('http://localhost:3001/Logout', {
-      withCredentials: true
+      withCredentials: true,
+      timeout: 5000
     })
     .then(result => {
-      // console.log(result);
+      console.log(result);
       if (result.status === 200) {
         dispatcher(logout())
         navigate('/login')

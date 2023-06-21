@@ -1,0 +1,121 @@
+/** @format */
+.newBook {
+  width: 100%;
+}
+.newBook .backB {
+  padding: 10px 25px;
+  margin-bottom: 400px;
+  position: relative;
+}
+.newBook .backB svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+.newBook form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+  align-items: flex-start;
+}
+.newBook form .imageSec {
+  width: 24%;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.newBook form .imageSec label {
+  height: 100%;
+}
+.newBook form .imageSec label img {
+  padding: 10px;
+  border-radius: 25px;
+  border: 5px dashed #f1f0f0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.newBook form .imageSec label input {
+  display: none;
+}
+.newBook form .bookInfo {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+.newBook form .bookInfo label {
+  width: 100%;
+  margin-bottom: 15px;
+  color: #7e2061;
+}
+.newBook form .bookInfo label p {
+  font-weight: bold;
+}
+.newBook form .bookInfo label input {
+  background-color: #f1f0f0;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.newBook form .bookInfo label textarea {
+  resize: vertical;
+  background-color: #f1f0f0;
+  width: 100%;
+  outline: none;
+  border: 1px solid #601046;
+  border-radius: 10px;
+  padding: 10px;
+}
+.newBook form .bookInfo label select {
+  background-color: #f1f0f0;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.newBook form .bookInfo label .Select {
+  background-color: #f1f0f0;
+  border: 1px solid #601046;
+  border-radius: 10px;
+}
+.newBook form .bookInfo .responseMessage {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 800px) {
+  .newBook form {
+    flex-direction: column;
+  }
+  .newBook form .imageSec {
+    width: 100%;
+    height: 400px;
+  }
+  .newBook form .bookInfo {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.module.css.map */

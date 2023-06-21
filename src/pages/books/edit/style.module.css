@@ -1,0 +1,150 @@
+/** @format */
+.header a {
+  position: relative;
+  padding: 8px 20px;
+}
+.header a svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+
+.bookProfile {
+  margin-top: 25px;
+  background-color: #FFFFFF;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+.bookProfile .profileImage {
+  height: 100%;
+  width: 50%;
+}
+.bookProfile .profileImage label {
+  height: 100%;
+}
+.bookProfile .profileImage label img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 9/16;
+}
+.bookProfile .profileImage input {
+  display: none;
+}
+.bookProfile .bookInfo {
+  width: 100%;
+}
+.bookProfile .bookInfo .name {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #7e2061;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 2vw;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+}
+.bookProfile .bookInfo .flexDiv {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+.bookProfile .bookInfo .flexDiv .label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #9E9D9D;
+}
+.bookProfile .bookInfo .flexDiv input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1f0f0;
+  padding: 2px;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+.bookProfile .bookInfo .flexDiv .leftSide {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.bookProfile .bookInfo .flexDiv .leftSide .input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1f0f0;
+  padding: 5px;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+.bookProfile .bookInfo .flexDiv .rightSide {
+  width: 100%;
+}
+.bookProfile .bookInfo .flexDiv .rightSide textarea {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1f0f0;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: capitalize;
+  resize: vertical;
+}
+.bookProfile .bookInfo .resMsg {
+  text-align: center;
+  margin: 10px 0;
+}
+.bookProfile .bookInfo .submitBtn {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.bookProfile .bookInfo .delButton {
+  width: 100%;
+}
+@media screen and (max-width: 900px) {
+  .bookProfile {
+    flex-direction: column;
+    align-items: center;
+  }
+  .bookProfile .profileImage {
+    width: 100%;
+  }
+  .bookProfile .profileImage img {
+    aspect-ratio: 1;
+    border-radius: 10px;
+  }
+  .bookProfile .bookInfo .name {
+    max-width: none;
+    -webkit-text-decoration: underline #7e2061;
+            text-decoration: underline #7e2061;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 900px) and (max-width: 520px) {
+  .bookProfile .bookInfo .flexDiv {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+  }
+  .bookProfile .bookInfo .flexDiv .leftSide {
+    width: 100%;
+  }
+  .bookProfile .bookInfo .flexDiv .rightSide {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.module.css.map */

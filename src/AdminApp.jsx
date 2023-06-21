@@ -52,8 +52,7 @@ const AdminApp = () => {
             <Route path='/Login' element={<Login />} />
             <Route path='/'>
               <Route path='/' element={<Dashboard />} />
-              <Route path='books' element={<Books />} />
-              <Route path='books/new' element={<NewBook />} />
+              <Route path='books/*' element={<Books />} />
               <Route path='Categories/*' element={<Categories />} />
               <Route path='Authors/*' element={<Authors />} />
               <Route path='Collection/*' element={<Collection />} />

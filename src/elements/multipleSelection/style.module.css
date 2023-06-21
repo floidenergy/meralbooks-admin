@@ -1,0 +1,107 @@
+/** @format */
+.selectContainer {
+  padding: 0.25em;
+  position: relative;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  max-height: -moz-max-content;
+  max-height: max-content;
+}
+.selectContainer .values {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.selectContainer .values .value {
+  max-width: -moz-max-content;
+  max-width: max-content;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  flex-wrap: wrap;
+}
+.selectContainer .values .value .selOption {
+  text-transform: capitalize;
+}
+.selectContainer .values .value .multiSelOption {
+  background-color: #7e2061;
+  height: -moz-min-content;
+  height: min-content;
+  padding: 5px;
+  border-radius: 0.25em;
+  color: white;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+.selectContainer .values .value .multiSelOption:hover {
+  background-color: #601046;
+}
+.selectContainer .values .value .multiSelOption .selOptionRemover {
+  font-size: 1.2rem;
+  padding-left: 0.25em;
+}
+.selectContainer .values .value .searchValue {
+  background: transparent !important;
+  border: none;
+  display: inline-block;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  height: 100%;
+}
+.selectContainer .values .value .searchValue:focus {
+  outline: none;
+}
+.selectContainer .clearBtn {
+  padding: 2.5px;
+  background-color: transparent;
+  color: #5D595A;
+  border: none;
+  font-size: 1.9rem;
+}
+.selectContainer .clearBtn:focus, .selectContainer .clearBtn:hover {
+  color: black;
+}
+.selectContainer .divider {
+  align-self: stretch;
+  width: 0.1em;
+  background: #5D595A;
+}
+.selectContainer .caret {
+  border: 0.25em solid transparent;
+  border-top-color: #5D595A;
+  margin: 0.25em;
+}
+.selectContainer .caret:focus, .selectContainer .caret:hover {
+  border-top-color: black;
+}
+.selectContainer .options {
+  border: 2px solid #9E9D9D;
+  border-radius: 0.25em;
+  width: 100%;
+  padding: 0.5em;
+  position: absolute;
+  top: calc(100% + 0.25em);
+  left: 0;
+  list-style-type: none;
+  background-color: #FFFFFF;
+  color: black;
+  display: none;
+  z-index: 100;
+}
+.selectContainer .options .option {
+  padding: 0.5em;
+  margin-bottom: 0.25em;
+  background-color: #f1f0f0;
+  text-transform: capitalize;
+  border-radius: 0.25em;
+}
+.selectContainer .options .option:hover {
+  background-color: rgb(59, 59, 255);
+  color: white;
+}
+.selectContainer .show {
+  display: block;
+}/*# sourceMappingURL=style.module.css.map */

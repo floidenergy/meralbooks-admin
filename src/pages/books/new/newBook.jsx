@@ -1,22 +1,65 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { BsArrowBarLeft } from 'react-icons/bs'
 
-import './upload.css'
+import style from './style.module.css'
 
 import bookSkilteon from '../../../images/book.jpg'
+import NotifCard from '../../../elements/confirmation/ConfirmationNotif'
+import Select from '../../../elements/multipleSelection/Selection'
 
 const NewBook = () => {
+  const navigate = useNavigate()
   const [bookPicture, setBookPicture] = useState(bookSkilteon)
+  // api's Data
+  const [categoriesData, setCategoriesData] = useState([{}])
+  const [authorsData, setAuthorsData] = useState([{}])
+  // client's Data
+  const [categories, setCategories] = useState([])
+  const [author, setAuthor] = useState()
+  const [language, setLanguage] = useState()
+  //*********** */
+  const [isNotified, setIsNotified] = useState(false)
+  const [notifData, setNotifData] = useState({})
 
-  const handleFileChange = async (e) => {
+  useEffect(() => {
+    axios.get('http://localhost:3001/authors').then(res => {
+      setAuthorsData(
+        res.data.map(({ name, _id }) => {
+          return { name, _id }
+        })
+      )
+    })
+
+    axios
+      .get('http://localhost:3001/category')
+      .then(res => setCategoriesData(res.data))
+  }, [])
+
+  const handleFileChange = async e => {
     setBookPicture(URL.createObjectURL(e.target.files[0]))
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
 
+    const elements = Array.from(e.currentTarget.elements)
+    elements.forEach(e => (e.parentElement.style = 'border: none;'))
+    if (!e.currentTarget.checkValidity()) {
+      const invalidElements = elements.filter(e => !e.checkValidity())
+      invalidElements.forEach(
+        e => (e.parentElement.style = 'border: 1px solid red;')
+      )
+      return
+    }
     const formData = new FormData(e.currentTarget)
-
+    formData.append('author', author.value)
+    formData.append('language', language.value)
+    categories.map(c => c.value).forEach((c, index) => {
+      formData.append(`category[${index}]`, c);
+    })
+    
     try {
       const response = await axios.post(
         'http://localhost:3001/admin/book',
@@ -24,64 +67,134 @@ const NewBook = () => {
         { withCredentials: true }
       )
 
-      //TODO: MAKE A RESPOND DISPLAY MESSAGE
+      console.log(response)
+      setNotifData({
+        message: 'book added',
+        Options: [{ value: 'ok', onClick: () => navigate('/books') }]
+      })
+      setIsNotified(true)
     } catch (err) {
-      console.log(err)
+      if (err.response) {
+        if (err.response.data.message) {
+          setNotifData({
+            message: err.response.data.message,
+            Options: [{ value: 'ok', onClick: () => setIsNotified(false) }]
+          })
+          setIsNotified(true)
+          return
+        }
+      }
+      setNotifData({
+        message: 'something bad happend',
+        Options: [{ value: 'ok', onClick: () => navigate('/books') }]
+      })
     }
   }
 
   return (
-    <main>
-      <form className='BooksRegistrer' onSubmit={handleSubmit}>
-        <label htmlFor='bookPicture'>
-          <img src={bookPicture} alt='' width={400}/>
-        </label>
-        <input
-          type='file'
-          name='bookPicture'
-          id='bookPicture'
-          style={{ display: 'none' }}
-          onChange={handleFileChange}
-          required
-        />
-        <input type='text' name='name' placeholder='Book name' required />
-        <textarea
-          type='text'
-          name='description'
-          placeholder="Book's Description"
-          required
-        />
-        <input
-          type='text'
-          name='author'
-          placeholder="Book's Writer"
-          required
-        />
-        <select name='language' required>
-          <option value='Arabic'>Arabic</option>
-          <option value='French'>French</option>
-          <option value='English'>English</option>
-        </select>
+    <div className={style.newBook}>
+      <Link to={'/authors'} className={style.backB + ' button white b-purple'}>
+        <BsArrowBarLeft />
+      </Link>
+      <form className='BooksRegistrer' onSubmit={handleSubmit} noValidate>
+        <section className={style.imageSec}>
+          <label htmlFor='bookPicture'>
+            <img src={bookPicture} alt='' width={400} />
+            <input
+              type='file'
+              name='bookPicture'
+              id='bookPicture'
+              style={{ display: 'none' }}
+              onChange={handleFileChange}
+              required
+            />
+          </label>
+        </section>
 
-        <select name='category' id=''>
-          <option>Select Category</option>
-          <option value='STORY'>Story</option>
-          <option value='SD'>Self Developement</option>
-          <option value='RELIGION'>Religion</option>
-          <option value='PHYLOSOPHY'>Phylosophy</option>
-        </select>
+        <section className={style.bookInfo}>
+          <label htmlFor='name'>
+            <p className={style.title}>Book's Name</p>
+            <input
+              id='name'
+              type='text'
+              name='name'
+              placeholder='Book name'
+              required
+            />
+          </label>
 
-        <input
-          type='number'
-          name='price'
-          defaultValue='1500'
-          placeholder='price'
-          required
-        />
+          <label htmlFor='description'>
+            <p className={style.title}>Book's Description</p>
+            <textarea
+              id='description'
+              type='text'
+              name='description'
+              placeholder="Book's Description"
+              required
+            />
+          </label>
 
-        <input type='submit' value='Add' />
+          <label htmlFor='author'>
+            <p className={style.title}>Author</p>
+            <Select
+              placeholder={'Select author'}
+              value={author}
+              Options={authorsData.map(cd => {
+                return { value: cd._id, label: cd.name }
+              })}
+              onChange={o => setAuthor(o)}
+              className={style.Select}
+            />
+          </label>
+
+          <label htmlFor='language'>
+            <p className={style.title}>Language</p>
+            <Select
+              placeholder={'Select language'}
+              value={language}
+              Options={[
+                { value: 'Arabic', label: 'Arabic' },
+                { value: 'French', label: 'French' },
+                { value: 'English', label: 'English' }
+              ]}
+              onChange={(o) => setLanguage(o)}
+              className={style.Select}
+            />
+          </label>
+          <label htmlFor='category'>
+            <p className={style.title}>Category</p>
+            <Select
+              placeholder={'Select Categories'}
+              value={categories}
+              Options={categoriesData.map(cd => {
+                return { value: cd._id, label: cd.name }
+              })}
+              onChange={o => setCategories(o)}
+              className={style.Select}
+              multiple
+            />
+          </label>
+
+          <label htmlFor='price'>
+            <p className={style.title}>Price</p>
+            <input
+              id='price'
+              type='number'
+              name='price'
+              placeholder='price'
+              required
+            />
+          </label>
+
+          <input
+            type='submit'
+            value='Upload book'
+            className='button b-purple white'
+          />
+        </section>
       </form>
-    </main>
+      {isNotified && <NotifCard {...notifData} />}
+    </div>
   )
 }
 

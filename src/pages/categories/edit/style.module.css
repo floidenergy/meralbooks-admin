@@ -1,16 +1,17 @@
-.main .backB {
+/** @format */
+.editCategory .header .backB {
   padding: 10px 25px;
   margin-bottom: 400px;
   position: relative;
 }
-.main .backB svg {
+.editCategory .header .backB svg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
 }
-.main form {
+.editCategory form {
   margin-top: 25px;
   width: 100%;
   padding: 25px;
@@ -20,16 +21,16 @@
   gap: 20px;
   align-items: flex-start;
 }
-.main form label {
+.editCategory form label {
   width: 100%;
   margin-bottom: 15px;
   color: #7e2061;
 }
-.main form label p {
+.editCategory form label p {
   font-weight: bold;
   text-transform: capitalize;
 }
-.main form label input {
+.editCategory form label input {
   background-color: #f1f0f0;
   width: 100%;
   outline: none;
@@ -37,13 +38,13 @@
   border-radius: 10px;
   padding: 10px;
 }
-.main form .resMsg {
+.editCategory form .resMsg {
   width: 100%;
   text-align: center;
   font-weight: bold;
   text-transform: capitalize;
   font-size: 1.2rem;
 }
-.main form .subButton {
+.editCategory form .subButton {
   width: 100%;
 }/*# sourceMappingURL=style.module.css.map */

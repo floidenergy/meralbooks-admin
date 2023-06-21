@@ -16,7 +16,9 @@ function Profile () {
     axios.get(`http://localhost:3001/authors/${id}`).then(result => {
       setAuthor(result.data)
     })
-  }, [])
+  }, [id])
+
+  console.log(author);
 
   return (
     <>
@@ -54,6 +56,31 @@ function Profile () {
           </div>
         </div>
       </section>
+      <div className={style.books}>
+        <p className={style.label}>Books</p>
+        <br />
+        {author.books?.length !== 0 ? (
+          <div className={style.bookCards}>
+            {author.books?.map(book => (
+              <Link key={book._id} className={style.card} to={`/books/profile?id=${book._id}`}>
+                <div className={style.imageContainer}>
+                <img
+                  src={book.img}
+                  // width={100}
+                  alt={book.name}
+                  className={style.avatar}
+                />
+              </div>
+              <p className={style.name}>{book.name}</p>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className={style.placeholder}>
+            Sorry We Dont have any books for this author
+          </p>
+        )}
+      </div>
     </>
   )
 }

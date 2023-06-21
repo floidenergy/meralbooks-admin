@@ -1,0 +1,110 @@
+/** @format */
+
+@import "../../sass/utilities/variable.scss";
+
+.selectContainer {
+	padding: 0.25em;
+	position: relative;
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	max-height: max-content;
+	.values {
+		display: flex;
+		flex-grow: 1;
+		flex-direction: row;
+		flex-wrap: wrap;
+		.value {
+			max-width: max-content;
+			display: inline-block;
+			display: flex;
+      align-items: center;
+			gap: 0.25em;
+			flex-wrap: wrap;
+			.selOption {
+				text-transform: capitalize;
+        // translate: 0 50%;
+			}
+			.multiSelOption {
+				background-color: $purple;
+				height: min-content;
+				padding: 5px;
+				border-radius: 0.25em;
+				color: white;
+				cursor: pointer;
+				transition: 1s ease-in-out;
+				&:hover {
+					background-color: $dark-purple;
+				}
+				.selOptionRemover {
+					font-size: 1.2rem;
+					padding-left: 0.25em;
+				}
+			}
+			.searchValue {
+				background: transparent !important;
+        border: none;
+				display: inline-block;
+				max-width: max-content;
+        height: 100%;
+        &:focus{
+          outline: none;
+        }
+			}
+		}
+	}
+	.clearBtn {
+		padding: 2.5px;
+		background-color: transparent;
+		color: $black;
+		border: none;
+		font-size: 1.9rem;
+
+		&:focus,
+		&:hover {
+			color: black;
+		}
+	}
+	.divider {
+		align-self: stretch;
+		width: 0.1em;
+		background: $black;
+	}
+	.caret {
+		border: 0.25em solid transparent;
+		border-top-color: $black;
+		margin: 0.25em;
+		&:focus,
+		&:hover {
+			border-top-color: black;
+		}
+	}
+	.options {
+		border: 2px solid $gray;
+		border-radius: 0.25em;
+		width: 100%;
+		padding: 0.5em;
+		position: absolute;
+		top: calc(100% + 0.25em);
+		left: 0;
+		list-style-type: none;
+		background-color: $white;
+    color: black;
+		display: none;
+    z-index: 100;
+		.option {
+			padding: 0.5em;
+			margin-bottom: 0.25em;
+			background-color: $dark-white;
+			text-transform: capitalize;
+			border-radius: 0.25em;
+			&:hover {
+				background-color: rgb(59, 59, 255);
+        color: white;
+			}
+		}
+	}
+	.show {
+		display: block;
+	}
+}

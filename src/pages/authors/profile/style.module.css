@@ -26,22 +26,25 @@
 .authorProfile .profileImage {
   height: 100%;
   width: 50%;
+  position: relative;
 }
 .authorProfile .profileImage img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .authorProfile .authorInfo {
   width: 100%;
 }
 .authorProfile .authorInfo .name {
   font-weight: bold;
-  font-size: 5vw;
+  font-size: 4vw;
+  line-height: 80%;
+  margin-bottom: 25px;
   word-wrap: normal;
-  max-width: -moz-min-content;
-  max-width: min-content;
   text-transform: capitalize;
 }
 .authorProfile .authorInfo .flexDiv {
@@ -50,10 +53,10 @@
   justify-content: space-between;
 }
 .authorProfile .authorInfo .flexDiv .label {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: bold;
-  color: #7e2061;
-  text-decoration: underline;
+  color: #9E9D9D;
+  margin-bottom: 2px;
 }
 .authorProfile .authorInfo .flexDiv .leftSide {
   width: 30%;
@@ -95,4 +98,72 @@
   .authorProfile .authorInfo .flexDiv .rightSide {
     width: 100%;
   }
+}
+
+.books {
+  margin-top: 1em;
+  background-color: #FFFFFF;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+.books .label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7e2061;
+}
+.books .placeholder {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-align: center;
+  color: #9E9D9D;
+  padding-bottom: 2em;
+}
+.books .bookCards {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.books .bookCards .card {
+  border-radius: 5px;
+  overflow: hidden;
+  color: unset;
+  text-decoration: unset;
+  width: 10%;
+  position: relative;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.416);
+}
+.books .bookCards .card .imageContainer {
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+}
+.books .bookCards .card .imageContainer img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 9/16;
+}
+.books .bookCards .card .imageContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #7e2061);
+  pointer-events: none;
+}
+.books .bookCards .card .name {
+  font-weight: bolder;
+  text-transform: capitalize;
+  text-align: center;
+  position: absolute;
+  color: white;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }/*# sourceMappingURL=style.module.css.map */

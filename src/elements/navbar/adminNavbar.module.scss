@@ -1,9 +1,12 @@
+/** @format */
+@import '../../sass/utilities/variable.scss';
+
 .navButton {
 	display: none;
 }
 .navbar {
 	background-color: #7e2061;
-	color: #FFFFFF;
+	color: #ffffff;
 	height: 100vh;
 	overflow-y: scroll;
 	padding: 10px 25px;
@@ -35,14 +38,21 @@
 		ul {
 			list-style-type: none;
 			li {
-				border-radius: 10px;
-				padding: 10px 25px;
+				margin: 5px 0;
 				font-weight: lighter;
+				border-bottom: 1px solid $dark-purple;
+				border-top: 1px solid $dark-purple;
 				&:hover {
 					background-color: #601046;
 				}
 				a {
+					display: block;
+					height: 100%;
+					width: 100%;
+					padding: 10px;
+
 					color: white;
+					// background-color: green;
 					text-decoration: none;
 					text-transform: capitalize;
 				}
@@ -81,7 +91,7 @@
 		transition: 1s ease-in all;
 		div.category {
 			ul {
-				color: #5D595A;
+				color: #5d595a;
 				width: 100%;
 			}
 		}

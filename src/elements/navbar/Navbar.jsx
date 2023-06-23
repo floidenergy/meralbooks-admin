@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {
-  BsFillGiftFill,
-  BsFillHouseFill,
-  BsArchiveFill,
-  BsLink45Deg,
-  BsTagFill,
-  BsEasel2Fill,
-  BsPen
-} from 'react-icons/bs'
+// import {
+//   BsFillGiftFill,
+//   BsFillHouseFill,
+//   BsArchiveFill,
+//   BsLink45Deg,
+//   BsTagFill,
+//   BsEasel2Fill,
+//   BsPen,
+//   BsFillPersonFill,
+//   BsUnindent,
+//   BsPersonFillLock
+// } from 'react-icons/bs'
+import * as Bs from 'react-icons/bs'
 import { TiThMenu } from 'react-icons/ti'
 import { GiBookCover } from 'react-icons/gi'
 
@@ -46,17 +50,17 @@ export default function Navbar () {
           <ul>
             <li>
               <Link to='/'>
-                <BsFillHouseFill /> DashBoard
+                <Bs.BsFillHouseFill /> DashBoard
               </Link>
             </li>
             <li>
               <Link to='/books/new'>
-                <BsArchiveFill /> New Books
+                <Bs.BsArchiveFill /> New Books
               </Link>
             </li>
             <li>
               <Link to='/coupon/new'>
-                <BsFillGiftFill /> New Coupon
+                <Bs.BsFillGiftFill /> New Coupon
               </Link>
             </li>
           </ul>
@@ -72,17 +76,17 @@ export default function Navbar () {
             </li>
             <li>
               <Link to='/categories'>
-                <BsLink45Deg /> categories
+                <Bs.BsLink45Deg /> categories
               </Link>
             </li>
             <li>
               <Link to='/authors'>
-                <BsPen /> Authors
+                <Bs.BsPen /> Authors
               </Link>
             </li>
             <li>
               <Link to='/collection'>
-                <BsTagFill /> Collection
+                <Bs.BsTagFill /> Collection
               </Link>
             </li>
           </ul>
@@ -93,7 +97,7 @@ export default function Navbar () {
           <ul>
             <li>
               <Link to='/orders'>
-                <BsEasel2Fill /> orders
+                <Bs.BsEasel2Fill /> orders
               </Link>
             </li>
           </ul>
@@ -104,12 +108,27 @@ export default function Navbar () {
           <ul>
             <li>
               <Link to='/coupons'>
-                <BsFillGiftFill /> coupons
+                <Bs.BsFillGiftFill /> coupons
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className={style.category}>
+          <p className={style.title}>SETTINGS</p>
+          <ul>
+            <li>
+              <Link to='/Settings/Account'>
+                <Bs.BsFillPersonFill /> Account Settings
+              </Link>
+            </li>
+            <li>
+              <Link to='/Settings/admin'>
+                <Bs.BsPersonFillLock /> Admin Settings
               </Link>
             </li>
             <li>
               <Link to='/logout'>
-                <BsFillGiftFill /> logout
+                <Bs.BsUnindent /> Logout
               </Link>
             </li>
           </ul>

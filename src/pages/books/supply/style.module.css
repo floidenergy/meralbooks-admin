@@ -1,0 +1,100 @@
+/** @format */
+.Supplies .header {
+  justify-content: space-between;
+}
+.Supplies .header a {
+  position: relative;
+  padding: 8px 20px;
+}
+.Supplies .header a svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+.Supplies .main {
+  margin-top: 20px;
+  padding: 10px;
+}
+.Supplies .main .selectionContainer {
+  border-radius: 0.25em;
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+.Supplies .main .selectBar {
+  border-radius: 0.25em;
+  background-color: #f1f0f0;
+}
+.Supplies .main .items {
+  width: 100%;
+}
+.Supplies .main .items table {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #FFFFFF;
+  width: 100%;
+}
+.Supplies .main .items table thead tr th {
+  border: 2px solid #f1f0f0 !important;
+}
+.Supplies .main .items table tbody tr td {
+  border: 2px solid #f1f0f0 !important;
+}
+.Supplies .main .items table tbody tr .thumbnail {
+  width: 5%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.Supplies .main .items table tbody tr .thumbnail img {
+  width: 100%;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Supplies .main .items table tbody tr .Book {
+  text-align: center;
+}
+.Supplies .main .items table tbody tr .Price {
+  width: 10%;
+  text-align: center;
+}
+.Supplies .main .items table tbody tr .Quantity {
+  width: 10%;
+}
+.Supplies .main .items table tbody tr .Quantity input {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  border: none;
+}
+.Supplies .main .items table tbody tr .Quantity input:focus {
+  outline: none;
+}
+.Supplies .main .items table tbody tr .Action {
+  width: 8%;
+  text-align: center;
+}
+.Supplies .main .items table tbody tr .Action button {
+  padding: 5px 10px;
+  border: none;
+  margin: 2px;
+  border-radius: 5px;
+}
+.Supplies .main .submitBtn {
+  margin-top: 10px;
+  width: 100%;
+}
+.Supplies .main .resStatus {
+  margin-top: 10px;
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 0.25em;
+}
+.Supplies .main .resStatus p {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  text-align: center;
+  text-transform: capitalize;
+  color: red;
+}/*# sourceMappingURL=style.module.css.map */

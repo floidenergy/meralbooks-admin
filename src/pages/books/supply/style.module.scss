@@ -1,0 +1,113 @@
+/** @format */
+
+@import "../../../sass/utilities/variable.scss";
+
+.Supplies {
+	.header {
+		justify-content: space-between;
+		a {
+			position: relative;
+			padding: 8px 20px;
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 1.5rem;
+			}
+		}
+	}
+	.main {
+		margin-top: 20px;
+		padding: 10px;
+		.selectionContainer {
+			border-radius: 0.25em;
+			background-color: $white;
+			padding: 10px;
+		}
+		.selectBar {
+			border-radius: 0.25em;
+			background-color: $dark-white;
+		}
+
+		.items {
+			width: 100%;
+			table {
+				padding: 10px;
+				margin-top: 10px;
+				background-color: $white;
+				width: 100%;
+				thead {
+					tr {
+						th {
+							border: 2px solid $dark-white !important;
+						}
+					}
+				}
+				tbody {
+					tr {
+						td {
+							border: 2px solid $dark-white !important;
+						}
+						.thumbnail {
+							width: 5%;
+							height: fit-content;
+							img {
+								width: 100%;
+								aspect-ratio: 1;
+								object-fit: cover;
+							}
+						}
+						.Book {
+							text-align: center;
+						}
+						.Price{
+							width: 10%;
+							text-align: center;
+						}
+						.Quantity {
+							width: 10%;
+							input {
+								text-align: center;
+								width: 100%;
+								height: 50px;
+								border: none;
+
+								&:focus {
+									outline: none;
+								}
+							}
+						}
+						.Action {
+							width: 8%;
+							text-align: center;
+							button {
+								padding: 5px 10px;
+								border: none;
+								margin: 2px;
+								border-radius: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.submitBtn{
+			margin-top: 10px;
+			width: 100%;
+		}
+		.resStatus{
+			margin-top: 10px;
+			background-color: $white;
+			padding: 10px;
+			border-radius: .25em;
+			p{
+				font-size: 1.2rem;
+				font-weight: bolder;
+				text-align: center;
+				text-transform: capitalize;
+				color: red;
+			}
+		}
+	}
+}

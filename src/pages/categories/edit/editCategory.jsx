@@ -15,7 +15,7 @@ export default function EditCategory () {
 
   useEffect(() => {
     const getAuthorData = async () => {
-      const result = await axios.get(`http://localhost:3001/Category/${id}`)
+      const result = await axios.get(`http://localhost:3001/api/v1/Category/${id}`)
       setCategory(result.data)
     }
 

@@ -12,7 +12,7 @@ function NewAuthor () {
   const [authorPic, setAuthorPic] = useState(imageUpload)
   const [responseMessage, setResponseMessage] = useState('')
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleFileChange = async e => {
     if (e.target.files.length !== 0)
@@ -22,8 +22,6 @@ function NewAuthor () {
   const handleSubmit = async e => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    e.currentTarget.reset()
-    setAuthorPic(imageUpload)
     try {
       const response = await axios.post(
         'http://localhost:3001/admin/author',
@@ -31,14 +29,17 @@ function NewAuthor () {
         { withCredentials: true }
       )
       setResponseMessage(response.data.message)
+      e.target.reset()
+      setAuthorPic(imageUpload)
     } catch (err) {
       if (err.response) {
-        if(err.response.status === 511) {
+        if (err.response.status === 511) {
           navigate('/logout')
         }
         console.log(err)
         setResponseMessage(err.response.data.error)
       }
+      console.log(err)
       setResponseMessage('Something bad happend')
     }
   }

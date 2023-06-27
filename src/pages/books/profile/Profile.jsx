@@ -13,11 +13,12 @@ export default function Profile () {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/books/${id}`)
+      .get(`http://localhost:3001/api/v1/books/${id}`)
       .then(result => {
         setBook(result.data)
       })
       .catch(err => navigate('/books'))
+      console.log("helo");
   }, [id])
 
   return (
@@ -77,6 +78,10 @@ export default function Profile () {
                         </p>
                       ))}
                     </span>
+                  </div>
+                  <div>
+                    <p className={style.label}>Quantite</p>
+                    <p className={style.value}>{book?.quantity} unit</p>
                   </div>
                   <div className={style.language}>
                     <p className={style.label}>Language</p>

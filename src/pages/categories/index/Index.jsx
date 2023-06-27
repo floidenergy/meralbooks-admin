@@ -36,7 +36,7 @@ const Index = () => {
   )
 
   useEffect(() => {
-    axios.get('http://localhost:3001/category').then(res => {
+    axios.get('http://localhost:3001/api/v1/category').then(res => {
       setCategories(res.data)
     })
   }, [])
@@ -76,7 +76,7 @@ const Index = () => {
           onClick: () => setIsNotif(false)
         }
       ]
-    });
+    })
     setIsNotif(true)
   }
 
@@ -106,7 +106,6 @@ const Index = () => {
                       } else
                         return (
                           <th key={index} {...column.getHeaderProps()}>
-
                             {column.render('Header')}
                           </th>
                         )

@@ -24,7 +24,7 @@ const NewBook = () => {
   const [notifData, setNotifData] = useState({})
 
   useEffect(() => {
-    axios.get('http://localhost:3001/authors').then(res => {
+    axios.get('http://localhost:3001/api/v1/authors').then(res => {
       setAuthorsData(
         res.data.map(({ name, _id }) => {
           return { name, _id }
@@ -33,7 +33,7 @@ const NewBook = () => {
     })
 
     axios
-      .get('http://localhost:3001/category')
+      .get('http://localhost:3001/api/v1/category')
       .then(res => setCategoriesData(res.data))
   }, [])
 

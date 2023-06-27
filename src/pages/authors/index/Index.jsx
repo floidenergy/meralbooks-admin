@@ -9,7 +9,7 @@ const Index = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/authors')
+      .get('http://localhost:3001/api/v1/authors')
       .then(result => {
         setAuthors(result.data)
       })

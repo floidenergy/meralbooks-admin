@@ -5,6 +5,7 @@ import style from './style.module.css'
 export default function Select ({
   placeholder,
   multiple,
+  showValue = true,
   value,
   onChange,
   Options,
@@ -29,6 +30,8 @@ export default function Select ({
     // searchInput.current.disabled = !searchInput.current.disabled;
   }, [showOptions])
 
+  // console.log(value);
+
   return (
     <div
       className={`${style.selectContainer} ${
@@ -49,6 +52,7 @@ export default function Select ({
       <span className={style.values}>
         <span className={style.value}>
           {multiple ? (
+            showValue &&
             value?.map(v => {
               return (
                 <p
@@ -75,7 +79,7 @@ export default function Select ({
             name=''
             id=''
             onClick={e => {
-              e.stopPropagation();
+              e.stopPropagation()
               // setShowOptions(!showOptions)
             }}
             onChange={e => {
@@ -103,16 +107,16 @@ export default function Select ({
         {options?.map((option, index) =>
           multiple ? (
             value.find(v => v.value === option.value) ? (
-              ""
-            ) : (
-              <li
+              ''
+              ) : (
+                <li
                 key={index}
                 onClick={e => {
                   // console.log('option')
                   onChange([...value, option])
                 }}
                 className={style.option}
-              >
+                >
                 {option.label}
               </li>
             )

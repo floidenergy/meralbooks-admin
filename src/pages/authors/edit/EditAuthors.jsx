@@ -21,13 +21,10 @@ export default function EditAuthors () {
 
   useEffect(() => {
     const getAuthorData = async () => {
-      const result = await axios.get(`http://localhost:3001/authors/${id}`)
+      const result = await axios.get(
+        `http://localhost:3001/api/v1/authors/${id}`
+      )
       setAuthor(result.data)
-      // const d = new Date(result.data.dob)
-      // console.log(d)
-
-      // _dob = d.toISOString().split('T')[0]
-      // console.log(_dob)
       setDob(result.data.dob.substring(0, 10))
       setAuthorPic(result.data.img)
     }
@@ -55,7 +52,7 @@ export default function EditAuthors () {
       setResponseMessage(response.data.message)
     } catch (err) {
       if (err.response) {
-        if(err.response.status === 511) {
+        if (err.response.status === 511) {
           return navigate('/logout')
         }
         console.log(err)
@@ -152,14 +149,13 @@ export default function EditAuthors () {
                     `http://localhost:3001/admin/author/${author._id}`,
                     { withCredentials: true }
                   )
-                  console.log(result);
+                  console.log(result)
                   if (result.status === 204) {
-                    navigate('/authors');
-                  }else{
-                    
+                    navigate('/authors')
+                  } else {
                   }
                 } catch (err) {
-                  if(err.response && err.response.status === 511) {
+                  if (err.response && err.response.status === 511) {
                     navigate('/logout')
                   }
                   // console.log(err.response.status);
@@ -171,7 +167,7 @@ export default function EditAuthors () {
             {
               value: 'No',
               onClick: e => {
-                e.preventDefault();
+                e.preventDefault()
                 setDelNotif(false)
               }
             }

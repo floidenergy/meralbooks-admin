@@ -13,7 +13,7 @@ function Profile () {
   const id = new URLSearchParams(location.search).get('id')
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/authors/${id}`).then(result => {
+    axios.get(`http://localhost:3001/api/v1/authors/${id}`).then(result => {
       setAuthor(result.data)
     })
   }, [id])

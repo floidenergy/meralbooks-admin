@@ -29,7 +29,7 @@ function UpdateBook () {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/books/${id}`)
+      .get(`http://localhost:3001/api/v1/books/${id}`)
       .then(result => {
         setBook(result.data)
         setBookPic(result.data.img)
@@ -105,7 +105,7 @@ function UpdateBook () {
     <>
       <header className={style.header}>
         <Link
-          to={{ pathname: '/book/profile', search: `?id=${book._id}` }}
+          to={{ pathname: '/books/profile', search: `?id=${book._id}` }}
           className={style.backB + ' button white b-purple'}
         >
           <BsArrowBarLeft />

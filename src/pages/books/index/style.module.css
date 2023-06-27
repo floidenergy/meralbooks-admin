@@ -23,14 +23,17 @@ section.books header .navB {
   border: 1px solid #FFFFFF;
   padding: 5px 10px;
 }
-section.books .cards {
+section.books .index {
+  display: flex;
+}
+section.books .index .cards {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
 }
-section.books .cards .card {
+section.books .index .cards .card {
   border-radius: 5px;
   overflow: hidden;
   color: unset;
@@ -39,18 +42,18 @@ section.books .cards .card {
   position: relative;
   box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.416);
 }
-section.books .cards .card .imageContainer {
+section.books .index .cards .card .imageContainer {
   width: 100%;
   height: -moz-min-content;
   height: min-content;
 }
-section.books .cards .card .imageContainer img {
+section.books .index .cards .card .imageContainer img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   aspect-ratio: 9/16;
 }
-section.books .cards .card .imageContainer::after {
+section.books .index .cards .card .imageContainer::after {
   content: "";
   position: absolute;
   top: 0;
@@ -60,7 +63,7 @@ section.books .cards .card .imageContainer::after {
   background: linear-gradient(to bottom, transparent, #7e2061);
   pointer-events: none;
 }
-section.books .cards .card .name {
+section.books .index .cards .card .name {
   font-weight: bolder;
   text-transform: capitalize;
   text-align: center;
@@ -70,4 +73,36 @@ section.books .cards .card .name {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
+}
+section.books .index .supplies {
+  background-color: #FFFFFF;
+  padding: 10px;
+  min-width: 25%;
+  position: relative;
+}
+section.books .index .supplies .nSupply {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+section.books .index .supplies .suppliesTable {
+  width: 100%;
+  margin-top: 10px;
+}
+section.books .index .supplies .suppliesTable thead {
+  background-color: #f1f0f0;
+}
+section.books .index .supplies .suppliesTable tbody {
+  background-color: #f1f0f0;
+  text-align: center;
+}
+section.books .index .supplies .noSupplies {
+  display: inline-block;
+  margin-top: 25px;
+  width: 100%;
+  color: gray;
+  text-align: center;
+  font-weight: bolder;
 }/*# sourceMappingURL=style.module.css.map */

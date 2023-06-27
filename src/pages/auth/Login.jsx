@@ -35,7 +35,7 @@ function Login () {
 
 		try {
 			const res = await axios.post(
-        'http://localhost:3001/admin/login',
+        'https://meralbooks-server.floidenergy.repl.co/admin/login',
         formData,
         {
           withCredentials: true

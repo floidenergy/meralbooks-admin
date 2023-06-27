@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTable } from 'react-table'
-
 import axios from 'axios'
 
 import style from './style.module.css'
@@ -59,10 +58,10 @@ export default function Index () {
   //   updatedAt: '2023-06-27T05:25:23.976Z',
   //   __v: 0
   // }
-
+    console.log(process.env.KEY);
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/v1/books')
+      .get('https://meralbooks-server.floidenergy.repl.co/api/v1/books')
       .then(result => {
         // console.log(result)
         setBooks(result.data)
@@ -75,7 +74,7 @@ export default function Index () {
       })
 
     axios
-      .get('http://localhost:3001/admin/supply', { withCredentials: true })
+      .get('https://meralbooks-server.floidenergy.repl.co/admin/supply', { withCredentials: true })
       .then(result => {
         console.log(result)
         setSupplies(result.data)

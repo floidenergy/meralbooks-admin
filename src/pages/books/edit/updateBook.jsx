@@ -29,7 +29,7 @@ function UpdateBook () {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/v1/books/${id}`)
+      .get(`https://meralbooks-server.floidenergy.repl.co/api/v1/books/${id}`)
       .then(result => {
         setBook(result.data)
         setBookPic(result.data.img)
@@ -56,11 +56,11 @@ function UpdateBook () {
       })
 
     axios
-      .get('http://localhost:3001/category')
+      .get('https://meralbooks-server.floidenergy.repl.co/category')
       .then(result => setCategoriesData(result.data))
 
     axios
-      .get('http://localhost:3001/authors')
+      .get('https://meralbooks-server.floidenergy.repl.co/authors')
       .then(result => setAuthorsData(result.data))
   }, [])
 
@@ -84,7 +84,7 @@ function UpdateBook () {
 
     try {
       const response = await axios.put(
-        `http://localhost:3001/admin/book/${id}`,
+        `https://meralbooks-server.floidenergy.repl.co/admin/book/${id}`,
         formData,
         { withCredentials: true }
       )
@@ -225,7 +225,7 @@ function UpdateBook () {
                 e.preventDefault()
                 try {
                   const result = await axios.delete(
-                    `http://localhost:3001/admin/book/${book._id}`,
+                    `https://meralbooks-server.floidenergy.repl.co/admin/book/${book._id}`,
                     { withCredentials: true }
                   )
                   console.log(result);

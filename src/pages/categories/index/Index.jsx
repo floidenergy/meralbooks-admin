@@ -36,7 +36,7 @@ const Index = () => {
   )
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/v1/category').then(res => {
+    axios.get('https://meralbooks-server.floidenergy.repl.co/api/v1/category').then(res => {
       setCategories(res.data)
     })
   }, [])
@@ -52,7 +52,7 @@ const Index = () => {
           value: 'yes',
           onClick: () => {
             axios
-              .delete(`http://localhost:3001/admin/category/${categoryID}`, {
+              .delete(`https://meralbooks-server.floidenergy.repl.co/admin/category/${categoryID}`, {
                 withCredentials: true
               })
               .then(() => {

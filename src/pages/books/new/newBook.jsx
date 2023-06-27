@@ -24,7 +24,7 @@ const NewBook = () => {
   const [notifData, setNotifData] = useState({})
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/v1/authors').then(res => {
+    axios.get('https://meralbooks-server.floidenergy.repl.co/api/v1/authors').then(res => {
       setAuthorsData(
         res.data.map(({ name, _id }) => {
           return { name, _id }
@@ -33,7 +33,7 @@ const NewBook = () => {
     })
 
     axios
-      .get('http://localhost:3001/api/v1/category')
+      .get('https://meralbooks-server.floidenergy.repl.co/api/v1/category')
       .then(res => setCategoriesData(res.data))
   }, [])
 
@@ -62,7 +62,7 @@ const NewBook = () => {
     
     try {
       const response = await axios.post(
-        'http://localhost:3001/admin/book',
+        'https://meralbooks-server.floidenergy.repl.co/admin/book',
         formData,
         { withCredentials: true }
       )

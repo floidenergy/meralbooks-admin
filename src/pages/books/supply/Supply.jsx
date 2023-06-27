@@ -12,7 +12,6 @@ export default function Supply () {
   const navigate = useNavigate()
 
   const [books, setBooks] = useState([])
-  const [SelectedBooks, setSelectedBooks] = useState([])
   const [selectedOption, setSelectedOption] = useState([])
   const [supplyData, setSupplyData] = useState([])
 
@@ -63,7 +62,7 @@ export default function Supply () {
     if(supplyData.length === 0)
       return setResMsg("please Provide some books")
     try {
-      const result = await axios.put(
+      await axios.put(
         'https://meralbooks-server.floidenergy.repl.co/admin/supply',
         supplyData,
         { withCredentials: true }
@@ -128,7 +127,7 @@ export default function Supply () {
         </div>
 
         <div className={style.items}>
-          <table>
+          <table {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup, index) => {
                 return (

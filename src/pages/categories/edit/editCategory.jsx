@@ -15,7 +15,9 @@ export default function EditCategory () {
 
   useEffect(() => {
     const getAuthorData = async () => {
-      const result = await axios.get(`https://meralbooks-server.floidenergy.repl.co/api/v1/Category/${id}`)
+      const result = await axios.get(
+        `https://meralbooks-server.floidenergy.repl.co/api/v1/Category/${id}`
+      )
       setCategory(result.data)
     }
 
@@ -27,10 +29,10 @@ export default function EditCategory () {
     // const formData = new FormData(e.currentTarget)
     const formData = Object.fromEntries(new FormData(e.currentTarget).entries())
     // const formData = new FormData(e.currentTarget)
-    console.log("submited");
+    console.log('submited')
 
     try {
-      const response = await axios.put(
+      await axios.put(
         `https://meralbooks-server.floidenergy.repl.co/admin/category/${id}`,
         formData,
         { withCredentials: true }

@@ -4,11 +4,9 @@
 import React, { useEffect, useState } from 'react'
 import {
   Routes,
-  Router,
   Route,
   useNavigate,
   useLocation,
-  Switch
 } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -22,7 +20,6 @@ import style from './style.module.css'
 
 import Dashboard from './pages/dashboard/Dashboard'
 import Books from './pages/books/Books'
-import NewBook from './pages/books/new/newBook'
 import Categories from './pages/categories/Categories'
 import Authors from './pages/authors/Authors'
 import Collection from './pages/collection/Collection'
@@ -42,7 +39,7 @@ const AdminApp = () => {
     }
 
     setShouldRenderNavbar(location.pathname !== '/login')
-  }, [location.pathname])
+  }, [location.pathname, navigate, user.isConnected])
 
   return (
     <div className={shouldRenderNavbar ? style.containerData : {}}>

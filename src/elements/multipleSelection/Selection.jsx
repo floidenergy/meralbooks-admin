@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import style from './style.module.css'
 
@@ -11,7 +11,6 @@ export default function Select ({
   Options,
   className
 }) {
-  const searchInput = useRef(null)
   const [showOptions, setShowOptions] = useState(false)
   const [options, setOptions] = useState([])
 
@@ -22,13 +21,13 @@ export default function Select ({
     } else {
       onChange()
     }
-  }, [])
+  }, [Options, multiple, onChange])
 
   useEffect(() => {
     setOptions(Options)
     // console.log(searchInput.current.disabled)
     // searchInput.current.disabled = !searchInput.current.disabled;
-  }, [showOptions])
+  }, [showOptions, Options])
 
   // console.log(value);
 

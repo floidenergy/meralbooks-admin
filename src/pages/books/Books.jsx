@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import Index from './index/Index'
 import New from './new/newBook'

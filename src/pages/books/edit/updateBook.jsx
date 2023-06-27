@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -62,7 +62,7 @@ function UpdateBook () {
     axios
       .get('https://meralbooks-server.floidenergy.repl.co/authors')
       .then(result => setAuthorsData(result.data))
-  }, [])
+  }, [id, navigate])
 
   const handleFileChange = async e => {
     if (e.target.files.length !== 0)

@@ -19,7 +19,7 @@ export default function Profile () {
       })
       .catch(err => navigate('/books'))
       console.log("helo");
-  }, [id])
+  }, [id, navigate])
 
   return (
     <section className={style.Profile}>

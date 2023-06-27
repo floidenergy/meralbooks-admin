@@ -91,7 +91,7 @@ const Index = () => {
       </header>
       <div>
         <section className={style.categoryTableSection}>
-          <table className={style.categoriesTable}>
+          <table className={style.categoriesTable} {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup, index) => {
                 return (

@@ -80,7 +80,7 @@ export default function Index () {
         setSupplies(result.data)
       })
       .catch(err => {})
-  }, [])
+  }, [navigate, ])
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data: supplies })
@@ -123,7 +123,7 @@ export default function Index () {
           </Link>
           <div>
             {supplies.length !== 0 ? (
-              <table className={style.suppliesTable}>
+              <table className={style.suppliesTable} {...getTableProps()}>
                 <thead>
                   {headerGroups.map((headerGroup, index) => (
                     <tr key={index} {...headerGroup.getHeaderGroupProps()}>

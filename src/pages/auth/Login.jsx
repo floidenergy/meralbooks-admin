@@ -27,7 +27,7 @@ function Login () {
     if(user.isConnected){
       navigate('/');
     }
-  }, [])
+  }, [navigate, user.isConnected])
 
 	const handelSubmit = async (e) => {
 		e.preventDefault();

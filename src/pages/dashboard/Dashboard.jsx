@@ -1,6 +1,4 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 import Card from './elements/card/Card'
 import BarChart from './elements/shart/bar/bar'
@@ -9,7 +7,6 @@ import List from './elements/list/List'
 import style from './dashboardStyle.module.css'
 
 const Dashboard = () => {
-  const admin = useSelector(state => state.user)
 
   const stateData = {
     month: {
@@ -78,19 +75,19 @@ const Dashboard = () => {
     ]
   }
 
-  const weeklyState = {
-    labels: stateData.week.map(e => e.day.toUpperCase()),
-    datasets: [
-      {
-        label: 'Revenue',
-        data: stateData.week.map(e => e.Revenue)
-      },
-      {
-        label: 'Profit',
-        data: stateData.week.map(e => e.Profit)
-      }
-    ]
-  }
+  // const weeklyState = {
+  //   labels: stateData.week.map(e => e.day.toUpperCase()),
+  //   datasets: [
+  //     {
+  //       label: 'Revenue',
+  //       data: stateData.week.map(e => e.Revenue)
+  //     },
+  //     {
+  //       label: 'Profit',
+  //       data: stateData.week.map(e => e.Profit)
+  //     }
+  //   ]
+  // }
 
   const cards = []
   for (const state in stateData.month) {

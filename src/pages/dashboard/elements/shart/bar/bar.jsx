@@ -1,6 +1,8 @@
 // import React, {useRef} from 'react'
-import { Bar, Line, Chart } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 // import {Chart as ChartJS} from 'chart.js/auto'
+
+// eslint-disable-next-line
 import { Chart as ChartJS } from 'chart.js/auto'
 
 function BarChart ({ ChartData }) {

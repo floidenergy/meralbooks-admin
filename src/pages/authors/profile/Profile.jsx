@@ -13,7 +13,7 @@ function Profile () {
   const id = new URLSearchParams(location.search).get('id')
 
   useEffect(() => {
-    axios.get(`https://meralbooks-server.floidenergy.repl.co/api/v1/authors/${id}`).then(result => {
+    axios.get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/authors/${id}`).then(result => {
       setAuthor(result.data)
     })
   }, [id])

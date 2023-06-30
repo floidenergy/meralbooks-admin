@@ -36,7 +36,7 @@ const Index = () => {
   )
 
   useEffect(() => {
-    axios.get('https://meralbooks-server.floidenergy.repl.co/api/v1/category').then(res => {
+    axios.get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/category`).then(res => {
       setCategories(res.data)
     })
   }, [])
@@ -52,7 +52,7 @@ const Index = () => {
           value: 'yes',
           onClick: () => {
             axios
-              .delete(`https://meralbooks-server.floidenergy.repl.co/admin/category/${categoryID}`, {
+              .delete(`${process.env.REACT_APP_SERVER_LINK}/admin/category/${categoryID}`, {
                 withCredentials: true
               })
               .then(() => {

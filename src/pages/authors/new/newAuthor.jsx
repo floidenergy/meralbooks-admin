@@ -24,7 +24,7 @@ function NewAuthor () {
     const formData = new FormData(e.currentTarget)
     try {
       const response = await axios.post(
-        'https://meralbooks-server.floidenergy.repl.co/admin/author',
+        `${process.env.REACT_APP_SERVER_LINK}/admin/author`,
         formData,
         { withCredentials: true }
       )

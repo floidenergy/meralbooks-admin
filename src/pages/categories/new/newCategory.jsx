@@ -22,7 +22,7 @@ function New () {
 
           try {
             const response = await axios.post(
-              'https://meralbooks-server.floidenergy.repl.co/admin/category',
+              `${process.env.REACT_APP_SERVER_LINK}/admin/category`,
               formData,
               { withCredentials: true }
             )

@@ -16,7 +16,7 @@ export default function EditCategory () {
   useEffect(() => {
     const getAuthorData = async () => {
       const result = await axios.get(
-        `https://meralbooks-server.floidenergy.repl.co/api/v1/Category/${id}`
+        `${process.env.REACT_APP_SERVER_LINK}/api/v1/Category/${id}`
       )
       setCategory(result.data)
     }
@@ -33,7 +33,7 @@ export default function EditCategory () {
 
     try {
       await axios.put(
-        `https://meralbooks-server.floidenergy.repl.co/admin/category/${id}`,
+        `${process.env.REACT_APP_SERVER_LINK}/admin/category/${id}`,
         formData,
         { withCredentials: true }
       )

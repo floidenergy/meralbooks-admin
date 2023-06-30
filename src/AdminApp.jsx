@@ -26,6 +26,7 @@ import Collection from './pages/collection/Collection'
 import Coupons from './pages/coupons/Coupons'
 
 const AdminApp = () => {
+
   const location = useLocation()
   const navigate = useNavigate()
   const { user } = useSelector(state => state)

@@ -13,7 +13,7 @@ export default function Profile () {
 
   useEffect(() => {
     axios
-      .get(`https://meralbooks-server.floidenergy.repl.co/api/v1/books/${id}`)
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/books/${id}`)
       .then(result => {
         setBook(result.data)
       })

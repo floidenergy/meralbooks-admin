@@ -24,44 +24,9 @@ export default function Index () {
     []
   )
 
-  //   userAdmin: {
-  //     name: {
-  //       fName: 'admin',
-  //       lName: 'admin',
-  //       _id: '646e9d157bb6ba4fd2e4e70a'
-  //     },
-  //     username: 'admin',
-  //     confirmedEmail: false,
-  //     shipping_info: [],
-  //     order_history: [],
-  //     privacyToken: [],
-  //     _id: '646e9d157bb6ba4fd2e4e709'
-  //   },
-  //   items: [
-  //     {
-  //       book: '649859d561049969e6fedc9b',
-  //       quantity: 7,
-  //       _id: '649a72c3c978ec140eb1b127'
-  //     },
-  //     {
-  //       book: '64985a0561049969e6fedcac',
-  //       quantity: 5,
-  //       _id: '649a72c3c978ec140eb1b128'
-  //     },
-  //     {
-  //       book: '649847eeca99248bbefd01de',
-  //       quantity: 10,
-  //       _id: '649a72c3c978ec140eb1b129'
-  //     }
-  //   ],
-  //   createdAt: '2023-06-27T05:25:23.976Z',
-  //   updatedAt: '2023-06-27T05:25:23.976Z',
-  //   __v: 0
-  // }
-    console.log(process.env.KEY);
   useEffect(() => {
     axios
-      .get('https://meralbooks-server.floidenergy.repl.co/api/v1/books')
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/books`)
       .then(result => {
         // console.log(result)
         setBooks(result.data)
@@ -74,7 +39,7 @@ export default function Index () {
       })
 
     axios
-      .get('https://meralbooks-server.floidenergy.repl.co/admin/supply', { withCredentials: true })
+      .get(`${process.env.REACT_APP_SERVER_LINK}/admin/supply`, { withCredentials: true })
       .then(result => {
         console.log(result)
         setSupplies(result.data)

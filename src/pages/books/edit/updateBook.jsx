@@ -29,7 +29,7 @@ function UpdateBook () {
 
   useEffect(() => {
     axios
-      .get(`https://meralbooks-server.floidenergy.repl.co/api/v1/books/${id}`)
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/books/${id}`)
       .then(result => {
         setBook(result.data)
         setBookPic(result.data.img)
@@ -56,11 +56,11 @@ function UpdateBook () {
       })
 
     axios
-      .get('https://meralbooks-server.floidenergy.repl.co/category')
+      .get(`${process.env.REACT_APP_SERVER_LINK}/category`)
       .then(result => setCategoriesData(result.data))
 
     axios
-      .get('https://meralbooks-server.floidenergy.repl.co/authors')
+      .get(`${process.env.REACT_APP_SERVER_LINK}/authors`)
       .then(result => setAuthorsData(result.data))
   }, [id, navigate])
 
@@ -84,7 +84,7 @@ function UpdateBook () {
 
     try {
       const response = await axios.put(
-        `https://meralbooks-server.floidenergy.repl.co/admin/book/${id}`,
+        `${process.env.REACT_APP_SERVER_LINK}/admin/book/${id}`,
         formData,
         { withCredentials: true }
       )
@@ -225,7 +225,7 @@ function UpdateBook () {
                 e.preventDefault()
                 try {
                   const result = await axios.delete(
-                    `https://meralbooks-server.floidenergy.repl.co/admin/book/${book._id}`,
+                    `${process.env.REACT_APP_SERVER_LINK}/admin/book/${book._id}`,
                     { withCredentials: true }
                   )
                   console.log(result);

@@ -51,7 +51,7 @@ export default function Supply () {
   // console.log(supplyData)
 
   useEffect(() => {
-    axios.get('https://meralbooks-server.floidenergy.repl.co/api/v1/books').then(result => {
+    axios.get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/books`).then(result => {
       setBooks(result.data)
     })
   }, [])
@@ -63,7 +63,7 @@ export default function Supply () {
       return setResMsg("please Provide some books")
     try {
       await axios.put(
-        'https://meralbooks-server.floidenergy.repl.co/admin/supply',
+        `${process.env.REACT_APP_SERVER_LINK}/admin/supply`,
         supplyData,
         { withCredentials: true }
       )

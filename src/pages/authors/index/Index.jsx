@@ -9,7 +9,7 @@ const Index = () => {
 
   useEffect(() => {
     axios
-      .get('https://meralbooks-server.floidenergy.repl.co/api/v1/authors')
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/authors`)
       .then(result => {
         setAuthors(result.data)
       })

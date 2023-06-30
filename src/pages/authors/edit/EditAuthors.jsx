@@ -22,7 +22,7 @@ export default function EditAuthors () {
   useEffect(() => {
     const getAuthorData = async () => {
       const result = await axios.get(
-        `https://meralbooks-server.floidenergy.repl.co/api/v1/authors/${id}`
+        `${process.env.REACT_APP_SERVER_LINK}/api/v1/authors/${id}`
       )
       setAuthor(result.data)
       setDob(result.data.dob.substring(0, 10))
@@ -45,7 +45,7 @@ export default function EditAuthors () {
 
     try {
       const response = await axios.put(
-        `https://meralbooks-server.floidenergy.repl.co/admin/author/${id}`,
+        `${process.env.REACT_APP_SERVER_LINK}/admin/author/${id}`,
         formData,
         { withCredentials: true }
       )
@@ -146,7 +146,7 @@ export default function EditAuthors () {
                 e.preventDefault()
                 try {
                   const result = await axios.delete(
-                    `https://meralbooks-server.floidenergy.repl.co/admin/author/${author._id}`,
+                    `${process.env.REACT_APP_SERVER_LINK}/admin/author/${author._id}`,
                     { withCredentials: true }
                   )
                   console.log(result)

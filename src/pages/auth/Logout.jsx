@@ -11,7 +11,7 @@ const Logout = () => {
 
   useEffect(() => {
 
-    axios.get('https://meralbooks-server.floidenergy.repl.co/Logout', {
+    axios.get(`${process.env.REACT_APP_SERVER_LINK}/Logout`, {
       withCredentials: true,
       timeout: 5000
     })

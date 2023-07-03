@@ -3,12 +3,14 @@
 import React, { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Cookie from 'js-cookie'
 import { useDispatch, useSelector } from 'react-redux'
 import {login} from '../../store/features/user'
 
 import style from './adminAuth.module.css'
 
 function Login () {
+  axios.defaults.withCredentials = true;
   const user = useSelector(state => state.user)
 	const dispatcher = useDispatch();
 	const navigate  = useNavigate();
@@ -29,36 +31,37 @@ function Login () {
     }
   }, [navigate, user.isConnected])
 
-	const handelSubmit = async (e) => {
-		e.preventDefault();
-		const formData = Object.fromEntries(new FormData(e.currentTarget).entries());
+const handelSubmit = async (e) => {
+  e.preventDefault();
+  const formData = Object.fromEntries(new FormData(e.currentTarget).entries());
 
-		try {
-			const res = await axios.post(
-        `${process.env.REACT_APP_SERVER_LINK}/admin/login`,
-        formData,
-        {
-          withCredentials: true
-        }
-      )
-			dispatcher(login(res.data));
-			navigate('/');
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_SERVER_LINK}/admin/login`,
+      formData,
+      {
+        withCredentials: true
+      }
+    )
+    console.log(res.headers['set-cookie']);
+    dispatcher(login(res.data));
+    navigate('/');
 
-		} catch (err) {
-      
-			console.log(err );
-			let errorMessage = ""
+  } catch (err) {
+    
+    console.log(err );
+    let errorMessage = ""
 
-			if(err.response)
-				errorMessage = err.response.data.message
-			else
-				errorMessage = err.message
-			
-			console.log(errorMessage);
-			return setRequestError(errorMessage);
-			// return setRequestError(err)
-		}
-	}
+    if(err.response)
+      errorMessage = err.response.data.message
+    else
+      errorMessage = err.message
+    
+    console.log(errorMessage);
+    return setRequestError(errorMessage);
+    // return setRequestError(err)
+  }
+}
 
   return (
     <div className={style.main}>

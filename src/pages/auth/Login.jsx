@@ -3,7 +3,6 @@
 import React, { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import Cookie from 'js-cookie'
 import { useDispatch, useSelector } from 'react-redux'
 import {login} from '../../store/features/user'
 

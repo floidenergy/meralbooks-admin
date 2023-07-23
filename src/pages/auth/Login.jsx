@@ -42,7 +42,7 @@ const handelSubmit = async (e) => {
         withCredentials: true
       }
     )
-    console.log(res.headers['set-cookie']);
+    
     dispatcher(login(res.data));
     navigate('/');
 

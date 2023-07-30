@@ -21,6 +21,8 @@ export default function Profile () {
       console.log("helo");
   }, [id, navigate])
 
+  console.log(book);
+
   return (
     <section className={style.Profile}>
       {book && (

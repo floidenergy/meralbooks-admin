@@ -1,0 +1,51 @@
+/** @format */
+
+@import "../../../sass/utilities/variable.scss";
+
+.Preview {
+	width: 100%;
+  min-height: 100%;
+  background-color: white;
+
+	.header {
+		width: 100%;
+		a {
+			position: relative;
+			padding: 8px 20px;
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 1.5rem;
+			}
+		}
+	}
+	.supplyPreview {
+		margin-top: 25px;
+		.tableInfo {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 1.5em;
+			.useradmin,
+			.date {
+				text-transform: capitalize;
+				text-decoration: underline;
+				color: $dark-purple;
+			}
+		}
+
+		.supplyTable {
+
+      width: 100%;
+				margin-top: 10px;
+				thead{
+					background-color: $dark-white;
+				}
+				tbody{
+					background-color: $dark-white;
+					text-align: center;
+				}
+		}
+	}
+}

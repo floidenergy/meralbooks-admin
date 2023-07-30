@@ -56,11 +56,11 @@ function UpdateBook () {
       })
 
     axios
-      .get(`${process.env.REACT_APP_SERVER_LINK}/category`)
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/category`)
       .then(result => setCategoriesData(result.data))
 
     axios
-      .get(`${process.env.REACT_APP_SERVER_LINK}/authors`)
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/authors`)
       .then(result => setAuthorsData(result.data))
   }, [id, navigate])
 
@@ -179,7 +179,7 @@ function UpdateBook () {
               <div className={style.price}>
                 <p className={style.label}>Price</p>
                 <input
-                  type='text'
+                  type='number'
                   name='price'
                   className={style.input}
                   defaultValue={book.price}

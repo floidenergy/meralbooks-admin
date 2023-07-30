@@ -16,11 +16,11 @@ export default function Select ({
 
   useEffect(() => {
     setOptions([...Options])
-    if (multiple) {
-      onChange([])
-    } else {
-      onChange()
-    }
+    // if (multiple) {
+    //   onChange([])
+    // } else {
+    //   onChange()
+    // }
   }, [Options, multiple, onChange])
 
   useEffect(() => {
@@ -124,7 +124,7 @@ export default function Select ({
               <li
                 key={index}
                 onClick={() => {
-                  // console.log('option')
+                  console.log(option)
                   onChange(option)
                 }}
                 className={style.option}

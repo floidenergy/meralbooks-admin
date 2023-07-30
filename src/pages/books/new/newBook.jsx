@@ -37,6 +37,8 @@ const NewBook = () => {
       .then(res => setCategoriesData(res.data))
   }, [])
 
+  
+
   const handleFileChange = async e => {
     setBookPicture(URL.createObjectURL(e.target.files[0]))
   }
@@ -99,6 +101,7 @@ const NewBook = () => {
       <form className='BooksRegistrer' onSubmit={handleSubmit} noValidate>
         <section className={style.imageSec}>
           <label htmlFor='bookPicture'>
+            {/* //TODO: make the upload image to show as 16/9 */}
             <img src={bookPicture} alt='' width={400} />
             <input
               type='file'
@@ -138,11 +141,16 @@ const NewBook = () => {
             <p className={style.title}>Author</p>
             <Select
               placeholder={'Select author'}
+              // value={{name: "hello"}}
               value={author}
               Options={authorsData.map(cd => {
                 return { value: cd._id, label: cd.name }
               })}
-              onChange={o => setAuthor(o)}
+              onChange={o => {
+                console.log(o);
+                setAuthor(o)
+              }}
+              
               className={style.Select}
             />
           </label>
@@ -170,6 +178,7 @@ const NewBook = () => {
                 return { value: cd._id, label: cd.name }
               })}
               onChange={o => setCategories(o)}
+              // onChange={o => {}}
               className={style.Select}
               multiple
             />

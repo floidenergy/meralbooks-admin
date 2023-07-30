@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTable } from 'react-table'
+import { BsFillSendFill } from 'react-icons/bs'
 import axios from 'axios'
 
 import style from './style.module.css'
@@ -13,12 +14,20 @@ export default function Index () {
   const columns = useMemo(
     () => [
       {
-        Header: 'Agent',
+        Header: 'User',
         accessor: 'userAdmin.username'
       },
       {
         Header: 'Items',
         accessor: 'items.length'
+      },
+      {
+        Header: 'Date',
+        accessor: 'createdAt'
+      },
+      {
+        Header: 'View',
+        accessor: '_id'
       }
     ],
     []
@@ -39,17 +48,18 @@ export default function Index () {
       })
 
     axios
-      .get(`${process.env.REACT_APP_SERVER_LINK}/admin/supply`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_SERVER_LINK}/admin/supply`, {
+        withCredentials: true
+      })
       .then(result => {
-        console.log(result)
         setSupplies(result.data)
       })
       .catch(err => {})
-  }, [navigate, ])
+  }, [navigate])
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data: supplies })
-
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: supplies })
+  
+  console.log(supplies);
   return (
     <section className={style.books}>
       <header>
@@ -83,7 +93,10 @@ export default function Index () {
           )}
         </div>
         <div className={style.supplies}>
-          <Link to={'supplies'} className={`${style.nSupply} button white b-purple`}>
+          <Link
+            to={'/Supply'}
+            className={`${style.nSupply} button white b-purple`}
+          >
             new Supplies
           </Link>
           <div>
@@ -107,7 +120,17 @@ export default function Index () {
                       <tr key={index} {...row.getRowProps()}>
                         {row.cells.map((cell, index) => (
                           <td key={index} {...cell.getCellProps()}>
-                            <div>{cell.render('Cell')}</div>
+                            {cell.column.Header === 'Date' ? (
+                              <div>
+                                {new Date(cell.value).toLocaleDateString('fr')}
+                              </div>
+                            ) : cell.column.Header === 'View' ? (
+                              <div>
+                                <Link to={`/supply/Preview?id=${cell.value}`}><BsFillSendFill /></Link>
+                              </div>
+                            ) : (
+                              <div>{cell.render('Cell')}</div>
+                            )}
                           </td>
                         ))}
                       </tr>
@@ -115,7 +138,9 @@ export default function Index () {
                   })}
                 </tbody>
               </table>
-            ) : <p className={style.noSupplies}> No Supplies </p>}
+            ) : (
+              <p className={style.noSupplies}> No Supplies </p>
+            )}
           </div>
         </div>
       </div>

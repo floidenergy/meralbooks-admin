@@ -24,6 +24,7 @@ import Categories from './pages/categories/Categories'
 import Authors from './pages/authors/Authors'
 import Collection from './pages/collection/Collection'
 import Coupons from './pages/coupons/Coupons'
+import Supply from './pages/supply/Supply'
 
 const AdminApp = () => {
 
@@ -55,6 +56,7 @@ const AdminApp = () => {
               <Route path='Authors/*' element={<Authors />} />
               <Route path='Collection/*' element={<Collection />} />
               <Route path='Coupons/*' element={<Coupons />} />
+              <Route path='Supply/*' element={<Supply />} />
               <Route path='Logout' element={<Logout />} />
             </Route>
         </Routes>

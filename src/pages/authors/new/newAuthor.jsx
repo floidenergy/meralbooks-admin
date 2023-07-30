@@ -52,6 +52,7 @@ function NewAuthor () {
       <form onSubmit={handleSubmit}>
         <section className={style.imageSec}>
           <label htmlFor='authorImage'>
+            {/* //TODO: make the upload image to show as 16/9 */}
             <img src={authorPic} alt='' />
           </label>
           <input

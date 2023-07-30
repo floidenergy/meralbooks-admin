@@ -1,0 +1,45 @@
+/** @format */
+.Preview {
+  width: 100%;
+  min-height: 100%;
+  background-color: white;
+}
+.Preview .header {
+  width: 100%;
+}
+.Preview .header a {
+  position: relative;
+  padding: 8px 20px;
+}
+.Preview .header a svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+.Preview .supplyPreview {
+  margin-top: 25px;
+}
+.Preview .supplyPreview .tableInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+.Preview .supplyPreview .tableInfo .useradmin,
+.Preview .supplyPreview .tableInfo .date {
+  text-transform: capitalize;
+  text-decoration: underline;
+  color: #601046;
+}
+.Preview .supplyPreview .supplyTable {
+  width: 100%;
+  margin-top: 10px;
+}
+.Preview .supplyPreview .supplyTable thead {
+  background-color: #f1f0f0;
+}
+.Preview .supplyPreview .supplyTable tbody {
+  background-color: #f1f0f0;
+  text-align: center;
+}/*# sourceMappingURL=style.module.css.map */

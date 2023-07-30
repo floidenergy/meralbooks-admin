@@ -15,6 +15,8 @@ const Index = () => {
       })
   }, [])
 
+  console.log(authors);
+
   return (
     <section className={style.author}>
       <header>

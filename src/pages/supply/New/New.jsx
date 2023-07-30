@@ -8,7 +8,7 @@ import Selection from '../../../elements/multipleSelection/Selection'
 
 import style from './style.module.css'
 
-export default function Supply () {
+export default function New () {
   const navigate = useNavigate()
 
   const [books, setBooks] = useState([])

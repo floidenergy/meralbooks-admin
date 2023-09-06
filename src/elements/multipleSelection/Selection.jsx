@@ -11,25 +11,16 @@ export default function Select ({
   Options,
   className
 }) {
+  
   const [showOptions, setShowOptions] = useState(false)
   const [options, setOptions] = useState([])
 
   useEffect(() => {
     setOptions([...Options])
-    // if (multiple) {
-    //   onChange([])
-    // } else {
-    //   onChange()
-    // }
   }, [Options, multiple, onChange])
-
   useEffect(() => {
     setOptions(Options)
-    // console.log(searchInput.current.disabled)
-    // searchInput.current.disabled = !searchInput.current.disabled;
   }, [showOptions, Options])
-
-  // console.log(value);
 
   return (
     <div
@@ -83,8 +74,10 @@ export default function Select ({
             }}
             onChange={e => {
               e.stopPropagation()
-              const pattern = new RegExp(e.target.value)
-              setOptions(Options.filter(op => pattern.test(op.label)))
+              const pattern = new RegExp(e.target.value.toLowerCase())
+              setOptions(
+                Options.filter(op => pattern.test(op.label.toLowerCase()))
+              )
             }}
             // disabled
           />
@@ -107,15 +100,15 @@ export default function Select ({
           multiple ? (
             value.find(v => v.value === option.value) ? (
               ''
-              ) : (
-                <li
+            ) : (
+              <li
                 key={index}
                 onClick={e => {
                   // console.log('option')
                   onChange([...value, option])
                 }}
                 className={style.option}
-                >
+              >
                 {option.label}
               </li>
             )

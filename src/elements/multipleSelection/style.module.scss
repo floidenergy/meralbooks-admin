@@ -14,10 +14,13 @@
 		flex-grow: 1;
 		flex-direction: row;
 		flex-wrap: wrap;
+		width: 100%;
+
 		.value {
-			max-width: max-content;
+			// max-width: max-content;
 			display: inline-block;
 			display: flex;
+			width: 100%;
       align-items: center;
 			gap: 0.25em;
 			flex-wrap: wrap;

@@ -24,7 +24,7 @@
 }
 .Supplies .main .selectBar {
   border-radius: 0.25em;
-  background-color: #f1f0f0;
+  background-color: #dedede;
 }
 .Supplies .main .items {
   width: 100%;
@@ -36,10 +36,10 @@
   width: 100%;
 }
 .Supplies .main .items table thead tr th {
-  border: 2px solid #f1f0f0 !important;
+  border: 2px solid #dedede !important;
 }
 .Supplies .main .items table tbody tr td {
-  border: 2px solid #f1f0f0 !important;
+  border: 2px solid #dedede !important;
 }
 .Supplies .main .items table tbody tr .thumbnail {
   width: 5%;

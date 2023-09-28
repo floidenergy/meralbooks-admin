@@ -199,7 +199,7 @@ $delay: calc($duration / 6);
     @include polka(10px, 30%, #1e6dc700, rgba(255, 255, 255, 0.903));
     top: 200%;
     left: 5%;
-    animation: move #{$duration/10}ms linear infinite;
+    animation: move #{calc($duration/10)}ms linear infinite;
     // animation: move calc($duration/10)ms linear infinite;
   }
   

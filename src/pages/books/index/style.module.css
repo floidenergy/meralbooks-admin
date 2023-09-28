@@ -92,10 +92,10 @@ section.books .index .supplies .suppliesTable {
   margin-top: 10px;
 }
 section.books .index .supplies .suppliesTable thead {
-  background-color: #f1f0f0;
+  background-color: #dedede;
 }
 section.books .index .supplies .suppliesTable tbody {
-  background-color: #f1f0f0;
+  background-color: #dedede;
   text-align: center;
 }
 section.books .index .supplies .noSupplies {

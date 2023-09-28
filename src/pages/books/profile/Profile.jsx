@@ -5,6 +5,7 @@ import { BsArrowBarLeft } from 'react-icons/bs'
 
 import style from './style.module.css'
 
+
 export default function Profile () {
   const [book, setBook] = useState()
   const location = useLocation()
@@ -18,10 +19,10 @@ export default function Profile () {
         setBook(result.data)
       })
       .catch(err => navigate('/books'))
-      console.log("helo");
+    console.log('helo')
   }, [id, navigate])
 
-  console.log(book);
+  console.log(book)
 
   return (
     <section className={style.Profile}>
@@ -64,7 +65,9 @@ export default function Profile () {
                       </div>
                       <div className={style.authorInfo}>
                         <p className={style.authorName}>{book.author.name}</p>
-                        <p className={style.booksLength}>Books: {book.author?.books?.length}</p>
+                        <p className={style.booksLength}>
+                          Books: {book.author?.books?.length}
+                        </p>
                       </div>
                     </div>
                   </div>

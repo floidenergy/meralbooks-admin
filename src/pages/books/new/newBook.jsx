@@ -8,6 +8,7 @@ import style from './style.module.css'
 import bookSkilteon from '../../../images/book.jpg'
 import NotifCard from '../../../elements/confirmation/ConfirmationNotif'
 import Select from '../../../elements/multipleSelection/Selection'
+import LoadingAnimation from '../../../elements/loadingAnimation/Loading'
 
 const NewBook = () => {
   const navigate = useNavigate()
@@ -21,23 +22,24 @@ const NewBook = () => {
   const [language, setLanguage] = useState()
   //*********** */
   const [isNotified, setIsNotified] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [notifData, setNotifData] = useState({})
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/authors`).then(res => {
-      setAuthorsData(
-        res.data.map(({ name, _id }) => {
-          return { name, _id }
-        })
-      )
-    })
+    axios
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/authors`)
+      .then(res => {
+        setAuthorsData(
+          res.data.map(({ name, _id }) => {
+            return { name, _id }
+          })
+        )
+      })
 
     axios
       .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/category`)
       .then(res => setCategoriesData(res.data))
   }, [])
-
-  
 
   const handleFileChange = async e => {
     setBookPicture(URL.createObjectURL(e.target.files[0]))
@@ -45,6 +47,7 @@ const NewBook = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    setIsLoading(true)
 
     const elements = Array.from(e.currentTarget.elements)
     elements.forEach(e => (e.parentElement.style = 'border: none;'))
@@ -58,10 +61,12 @@ const NewBook = () => {
     const formData = new FormData(e.currentTarget)
     formData.append('author', author.value)
     formData.append('language', language.value)
-    categories.map(c => c.value).forEach((c, index) => {
-      formData.append(`category[${index}]`, c);
-    })
-    
+    categories
+      .map(c => c.value)
+      .forEach((c, index) => {
+        formData.append(`category[${index}]`, c)
+      })
+
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_SERVER_LINK}/admin/book`,
@@ -83,18 +88,20 @@ const NewBook = () => {
             Options: [{ value: 'ok', onClick: () => setIsNotified(false) }]
           })
           setIsNotified(true)
-          return
         }
+      } else {
+        setNotifData({
+          message: 'something bad happend',
+          Options: [{ value: 'ok', onClick: () => navigate('/books') }]
+        })
       }
-      setNotifData({
-        message: 'something bad happend',
-        Options: [{ value: 'ok', onClick: () => navigate('/books') }]
-      })
     }
+    setIsLoading(false)
   }
 
   return (
     <div className={style.newBook}>
+      {isLoading && <LoadingAnimation />}
       <Link to={'/authors'} className={style.backB + ' button white b-purple'}>
         <BsArrowBarLeft />
       </Link>
@@ -147,10 +154,9 @@ const NewBook = () => {
                 return { value: cd._id, label: cd.name }
               })}
               onChange={o => {
-                console.log(o);
+                console.log(o)
                 setAuthor(o)
               }}
-              
               className={style.Select}
             />
           </label>
@@ -165,7 +171,7 @@ const NewBook = () => {
                 { value: 'French', label: 'French' },
                 { value: 'English', label: 'English' }
               ]}
-              onChange={(o) => setLanguage(o)}
+              onChange={o => setLanguage(o)}
               className={style.Select}
             />
           </label>

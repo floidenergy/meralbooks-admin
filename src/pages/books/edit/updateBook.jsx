@@ -6,6 +6,7 @@ import { BsArrowBarLeft } from 'react-icons/bs'
 
 import ConfirmationNotif from '../../../elements/confirmation/ConfirmationNotif'
 import Select from '../../../elements/multipleSelection/Selection'
+import LoadingAnimation from '../../../elements/loadingAnimation/Loading'
 
 import style from './style.module.css'
 
@@ -14,6 +15,8 @@ function UpdateBook () {
   const [bookPic, setBookPic] = useState()
   const [delNotif, setDelNotif] = useState(false)
   const [ResponseMessage, setResponseMessage] = useState('')
+
+  const [isLoading, setIsLoading] = useState(false)
 
   // api's Data
   const [categoriesData, setCategoriesData] = useState([{}])
@@ -69,8 +72,10 @@ function UpdateBook () {
       setBookPic(URL.createObjectURL(e.target.files[0]))
   }
 
+  // TODO: on submit success turn into profile
   const handleSubmit = async e => {
     e.preventDefault()
+    setIsLoading(true)
     // const formData = Object.fromEntries(new FormData(e.currentTarget).entries());
     const formData = new FormData(e.currentTarget)
 
@@ -89,6 +94,7 @@ function UpdateBook () {
         { withCredentials: true }
       )
       setResponseMessage(response.data.message)
+      navigate('/books')
     } catch (err) {
       if (err.response) {
         if (err.response.status === 511) {
@@ -99,10 +105,13 @@ function UpdateBook () {
       }
       setResponseMessage('Something bad happend')
     }
+
+    setIsLoading(false)
   }
 
   return (
     <>
+      {isLoading && <LoadingAnimation />}
       <header className={style.header}>
         <Link
           to={{ pathname: '/books/profile', search: `?id=${book._id}` }}
@@ -223,12 +232,13 @@ function UpdateBook () {
               value: 'yes',
               onClick: async e => {
                 e.preventDefault()
+                setIsLoading(true)
                 try {
                   const result = await axios.delete(
                     `${process.env.REACT_APP_SERVER_LINK}/admin/book/${book._id}`,
                     { withCredentials: true }
                   )
-                  console.log(result);
+                  console.log(result)
                   if (result.status === 204) {
                     navigate('/books')
                   } else {
@@ -240,6 +250,7 @@ function UpdateBook () {
                   // console.log(err.response.status);
                   setResponseMessage('something went wrong')
                   setDelNotif(false)
+                  setIsLoading(false)
                 }
               }
             },

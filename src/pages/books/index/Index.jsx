@@ -37,7 +37,7 @@ export default function Index () {
     axios
       .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/books`)
       .then(result => {
-        // console.log(result)
+        console.log(result.data)
         setBooks(result.data)
       })
       .catch(err => {
@@ -81,7 +81,7 @@ export default function Index () {
               >
                 <div className={style.imageContainer}>
                   <img
-                    src={a.img}
+                    src={a.thumb}
                     // width={100}
                     alt={a.name}
                     className={style.avatar}

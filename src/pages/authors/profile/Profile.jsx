@@ -65,7 +65,7 @@ function Profile () {
               <Link key={book._id} className={style.card} to={`/books/profile?id=${book._id}`}>
                 <div className={style.imageContainer}>
                 <img
-                  src={book.img}
+                  src={book.thumb}
                   // width={100}
                   alt={book.name}
                   className={style.avatar}

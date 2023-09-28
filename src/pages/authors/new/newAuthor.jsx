@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { BsArrowBarLeft } from 'react-icons/bs'
 
+import LoadingAnimation from '../../../elements/loadingAnimation/Loading'
+
 import style from './style.module.css'
 
 import imageUpload from '../../../images/image_upload.png'
@@ -11,6 +13,7 @@ import imageUpload from '../../../images/image_upload.png'
 function NewAuthor () {
   const [authorPic, setAuthorPic] = useState(imageUpload)
   const [responseMessage, setResponseMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate()
 
@@ -21,6 +24,8 @@ function NewAuthor () {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    setIsLoading(true)
+    
     const formData = new FormData(e.currentTarget)
     try {
       const response = await axios.post(
@@ -42,10 +47,12 @@ function NewAuthor () {
       console.log(err)
       setResponseMessage('Something bad happend')
     }
+    setIsLoading(false)
   }
 
   return (
     <div className={style.main}>
+      {isLoading && <LoadingAnimation />}
       <Link to={'/authors'} className={style.backB + ' button white b-purple'}>
         <BsArrowBarLeft />
       </Link>

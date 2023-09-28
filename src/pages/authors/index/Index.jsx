@@ -30,7 +30,7 @@ const Index = () => {
           <Link key={a._id} to={{pathname: 'profile', search: `?id=${a._id}`}} className={style.card}>
             <div className={style.imageContainer}>
               <img
-                src={a.img}
+                src={a.thumb}
                 // width={100}
                 alt={a.name}
                 className={style.avatar}

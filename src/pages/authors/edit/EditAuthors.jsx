@@ -5,6 +5,7 @@ import axios from 'axios'
 import { BsArrowBarLeft } from 'react-icons/bs'
 
 import ConfirmationNotif from '../../../elements/confirmation/ConfirmationNotif'
+import LoadingAnimation from "../../../elements/loadingAnimation/Loading"
 
 import style from './style.module.css'
 
@@ -14,6 +15,7 @@ export default function EditAuthors () {
   const [dob, setDob] = useState('')
   const [delNotif, setDelNotif] = useState(false)
   const [ResponseMessage, setResponseMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -39,6 +41,7 @@ export default function EditAuthors () {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    setIsLoading(true)
     // const formData = new FormData(e.currentTarget)
     // const formData = Object.fromEntries(new FormData(e.currentTarget).entries())
     const formData = new FormData(e.currentTarget)
@@ -50,6 +53,7 @@ export default function EditAuthors () {
         { withCredentials: true }
       )
       setResponseMessage(response.data.message)
+      navigate("/authors")
     } catch (err) {
       if (err.response) {
         if (err.response.status === 511) {
@@ -60,10 +64,12 @@ export default function EditAuthors () {
       }
       setResponseMessage('Something bad happend')
     }
+    setIsLoading(true)
   }
 
   return (
     <>
+      {isLoading && <LoadingAnimation />}
       <header className={style.header}>
         <Link
           to={{ pathname: '/authors/profile', search: `?id=${author._id}` }}
@@ -144,6 +150,7 @@ export default function EditAuthors () {
               value: 'yes',
               onClick: async e => {
                 e.preventDefault()
+                setIsLoading(true);
                 try {
                   const result = await axios.delete(
                     `${process.env.REACT_APP_SERVER_LINK}/admin/author/${author._id}`,
@@ -161,6 +168,7 @@ export default function EditAuthors () {
                   // console.log(err.response.status);
                   setResponseMessage('something went wrong')
                   setDelNotif(false)
+                  setIsLoading(false);
                 }
               }
             },

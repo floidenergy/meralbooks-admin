@@ -160,7 +160,7 @@
   background-position: 0 -2.5px;
   top: 200%;
   left: 5%;
-  animation: move 250 ms linear infinite;
+  animation: move 250ms linear infinite;
 }
 .shelf:after {
   top: 400%;

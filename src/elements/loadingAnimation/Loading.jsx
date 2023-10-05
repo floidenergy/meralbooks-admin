@@ -1,17 +1,17 @@
 import style from './style.module.css'
-export default function LoadingAnimation () {
+export default function LoadingAnimation ({darkbackground}) {
   return (
-    <div className={style.container}>
-      <div class={style.bookshelf_wrapper}>
-        <ul class={style.books_list}>
-          <li class={`${style.book_item} ${style.first}`}></li>
-          <li class={`${style.book_item} ${style.second}`}></li>
-          <li class={`${style.book_item} ${style.third}`}></li>
-          <li class={`${style.book_item} ${style.fourth}`}></li>
-          <li class={`${style.book_item} ${style.fifth}`}></li>
-          <li class={`${style.book_item} ${style.sixth}`}></li>
+    <div className={`${style.container} ${darkbackground ? style.darker : style.lighter}`}>
+      <div className={style.bookshelf_wrapper}>
+        <ul className={style.books_list}>
+          <li className={`${style.book_item} ${style.first}`}></li>
+          <li className={`${style.book_item} ${style.second}`}></li>
+          <li className={`${style.book_item} ${style.third}`}></li>
+          <li className={`${style.book_item} ${style.fourth}`}></li>
+          <li className={`${style.book_item} ${style.fifth}`}></li>
+          <li className={`${style.book_item} ${style.sixth}`}></li>
         </ul>
-        <div class={style.shelf}></div>
+        <div className={style.shelf}></div>
       </div>
     </div>
   )

@@ -20,7 +20,7 @@ import style from './style.module.css'
 
 import Dashboard from './pages/dashboard/Dashboard'
 import Books from './pages/books/Books'
-import Categories from './pages/categories/Categories'
+import Categories from './pages/genre/Genre'
 import Authors from './pages/authors/Authors'
 import Collection from './pages/collection/Collection'
 import Coupons from './pages/coupons/Coupons'

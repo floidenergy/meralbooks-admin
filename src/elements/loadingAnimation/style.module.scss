@@ -21,6 +21,14 @@ $delay: calc($duration / 6);
   z-index: 500;
 }
 
+.darker{
+  background-color: #7e2060;
+}
+
+.lighter{
+  background-color: #7e2060a8;
+}
+
 .bookshelf_wrapper {
   position: relative;
   top: 60%;

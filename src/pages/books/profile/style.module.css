@@ -64,7 +64,7 @@
   display: flex;
   gap: 5px;
 }
-.Profile .bookProfile .bookInfo .flexDiv div .value.category {
+.Profile .bookProfile .bookInfo .flexDiv div .value.genre {
   display: flex;
   align-items: center;
   justify-content: center;

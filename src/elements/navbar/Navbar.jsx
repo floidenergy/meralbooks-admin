@@ -45,7 +45,7 @@ export default function Navbar () {
         <TiThMenu />
       </div>
       <nav className={navbarClasses.classes}>
-        <div className={style.category}>
+        <div className={style.genre}>
           <p className={style.title}>QUICK LINKS</p>
           <ul>
             <li>
@@ -66,7 +66,7 @@ export default function Navbar () {
           </ul>
         </div>
 
-        <div className={style.category}>
+        <div className={style.genre}>
           <p className={style.title}>CATALOG</p>
           <ul>
             <li>
@@ -92,7 +92,7 @@ export default function Navbar () {
           </ul>
         </div>
 
-        <div className={style.category}>
+        <div className={style.genre}>
           <p className={style.title}>SALE</p>
           <ul>
             <li>
@@ -103,7 +103,7 @@ export default function Navbar () {
           </ul>
         </div>
 
-        <div className={style.category}>
+        <div className={style.genre}>
           <p className={style.title}>PROMOTION</p>
           <ul>
             <li>
@@ -113,7 +113,7 @@ export default function Navbar () {
             </li>
           </ul>
         </div>
-        <div className={style.category}>
+        <div className={style.genre}>
           <p className={style.title}>SETTINGS</p>
           <ul>
             <li>

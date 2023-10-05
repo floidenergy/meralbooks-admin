@@ -8,6 +8,14 @@
   z-index: 500;
 }
 
+.darker {
+  background-color: #7e2060;
+}
+
+.lighter {
+  background-color: rgba(126, 32, 96, 0.6588235294);
+}
+
 .bookshelf_wrapper {
   position: relative;
   top: 60%;

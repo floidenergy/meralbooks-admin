@@ -36,7 +36,7 @@ const Index = () => {
   )
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/category`).then(res => {
+    axios.get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/genre`).then(res => {
       setCategories(res.data)
     })
   }, [])
@@ -44,15 +44,15 @@ const Index = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data })
 
-  const deleteCategory = categoryID => {
+  const deletegenre = genreID => {
     setNotifData({
-      message: `You really want to delete this category`,
+      message: `You really want to delete this genre`,
       Options: [
         {
           value: 'yes',
           onClick: () => {
             axios
-              .delete(`${process.env.REACT_APP_SERVER_LINK}/admin/category/${categoryID}`, {
+              .delete(`${process.env.REACT_APP_SERVER_LINK}/admin/genre/${genreID}`, {
                 withCredentials: true
               })
               .then(() => {
@@ -90,7 +90,7 @@ const Index = () => {
         </Link>
       </header>
       <div>
-        <section className={style.categoryTableSection}>
+        <section className={style.genreTableSection}>
           <table className={style.categoriesTable} {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup, index) => {
@@ -133,7 +133,7 @@ const Index = () => {
                               <button
                                 type='button'
                                 className='button b-purple white'
-                                onClick={() => deleteCategory(cell.value)}
+                                onClick={() => deletegenre(cell.value)}
                               >
                                 <BsFillTrash3Fill />
                               </button>

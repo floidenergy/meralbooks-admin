@@ -37,17 +37,18 @@ const NewBook = () => {
       })
 
     axios
-      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/category`)
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/genre`)
       .then(res => setCategoriesData(res.data))
   }, [])
 
   const handleFileChange = async e => {
+    // console.log("changed");
+    console.log(URL.createObjectURL(e.target.files[0]));
     setBookPicture(URL.createObjectURL(e.target.files[0]))
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
-    setIsLoading(true)
 
     const elements = Array.from(e.currentTarget.elements)
     elements.forEach(e => (e.parentElement.style = 'border: none;'))
@@ -58,13 +59,14 @@ const NewBook = () => {
       )
       return
     }
+    setIsLoading(true)
     const formData = new FormData(e.currentTarget)
     formData.append('author', author.value)
     formData.append('language', language.value)
     categories
       .map(c => c.value)
       .forEach((c, index) => {
-        formData.append(`category[${index}]`, c)
+        formData.append(`genre[${index}]`, c)
       })
 
     try {
@@ -108,7 +110,6 @@ const NewBook = () => {
       <form className='BooksRegistrer' onSubmit={handleSubmit} noValidate>
         <section className={style.imageSec}>
           <label htmlFor='bookPicture'>
-            {/* //TODO: make the upload image to show as 16/9 */}
             <img src={bookPicture} alt='' width={400} />
             <input
               type='file'
@@ -175,8 +176,8 @@ const NewBook = () => {
               className={style.Select}
             />
           </label>
-          <label htmlFor='category'>
-            <p className={style.title}>Category</p>
+          <label htmlFor='genre'>
+            <p className={style.title}>genre</p>
             <Select
               placeholder={'Select Categories'}
               value={categories}

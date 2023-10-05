@@ -20,25 +20,25 @@
   border: 1px solid #FFFFFF;
   padding: 5px 10px;
 }
-.categories .categoryTableSection {
+.categories .genreTableSection {
   padding: 25px;
   background-color: #FFFFFF;
 }
-.categories .categoryTableSection .categoriesTable {
+.categories .genreTableSection .categoriesTable {
   width: 100%;
   padding: 15px;
 }
-.categories .categoryTableSection .categoriesTable tbody tr {
+.categories .genreTableSection .categoriesTable tbody tr {
   text-align: center;
 }
-.categories .categoryTableSection .categoriesTable tbody tr td {
+.categories .genreTableSection .categoriesTable tbody tr td {
   border-bottom: 2px solid #9E9D9D;
   padding: 10px 0;
 }
-.categories .categoryTableSection .categoriesTable tbody tr td .actionButton {
+.categories .genreTableSection .categoriesTable tbody tr td .actionButton {
   display: flex;
   justify-content: space-evenly;
 }
-.categories .categoryTableSection .categoriesTable tbody tr td .actionButton * {
+.categories .genreTableSection .categoriesTable tbody tr td .actionButton * {
   min-width: 20px;
 }/*# sourceMappingURL=style.module.css.map */

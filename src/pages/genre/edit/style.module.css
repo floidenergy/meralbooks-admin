@@ -1,17 +1,17 @@
 /** @format */
-.editCategory .header .backB {
+.editgenre .header .backB {
   padding: 10px 25px;
   margin-bottom: 400px;
   position: relative;
 }
-.editCategory .header .backB svg {
+.editgenre .header .backB svg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
 }
-.editCategory form {
+.editgenre form {
   margin-top: 25px;
   width: 100%;
   padding: 25px;
@@ -21,16 +21,16 @@
   gap: 20px;
   align-items: flex-start;
 }
-.editCategory form label {
+.editgenre form label {
   width: 100%;
   margin-bottom: 15px;
   color: #7e2061;
 }
-.editCategory form label p {
+.editgenre form label p {
   font-weight: bold;
   text-transform: capitalize;
 }
-.editCategory form label input {
+.editgenre form label input {
   background-color: #dedede;
   width: 100%;
   outline: none;
@@ -38,13 +38,13 @@
   border-radius: 10px;
   padding: 10px;
 }
-.editCategory form .resMsg {
+.editgenre form .resMsg {
   width: 100%;
   text-align: center;
   font-weight: bold;
   text-transform: capitalize;
   font-size: 1.2rem;
 }
-.editCategory form .subButton {
+.editgenre form .subButton {
   width: 100%;
 }/*# sourceMappingURL=style.module.css.map */

@@ -74,10 +74,10 @@ export default function Profile () {
                   <div className={style.categories}>
                     <p className={style.label}>Categories</p>
                     <span className={style.value}>
-                      {book.category.map((cat, index) => (
+                      {book.genre.map((cat, index) => (
                         <p
                           key={index}
-                          className={style.value + ' ' + style.category}
+                          className={style.value + ' ' + style.genre}
                         >
                           {cat.name}
                         </p>

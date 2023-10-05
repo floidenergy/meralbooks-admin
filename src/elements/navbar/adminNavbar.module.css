@@ -25,30 +25,30 @@
   background-color: #601046;
   border-radius: 10px;
 }
-.navbar .category {
+.navbar .genre {
   padding: 5px;
   border-bottom: 1px solid white;
   margin: 25px 0;
 }
-.navbar .category .title {
+.navbar .genre .title {
   font-weight: bold;
   font-size: 1.1rem;
   text-transform: capitalize;
   margin-bottom: 15px;
 }
-.navbar .category ul {
+.navbar .genre ul {
   list-style-type: none;
 }
-.navbar .category ul li {
+.navbar .genre ul li {
   margin: 5px 0;
   font-weight: lighter;
   border-bottom: 1px solid #601046;
   border-top: 1px solid #601046;
 }
-.navbar .category ul li:hover {
+.navbar .genre ul li:hover {
   background-color: #601046;
 }
-.navbar .category ul li a {
+.navbar .genre ul li a {
   display: block;
   height: 100%;
   width: 100%;
@@ -88,7 +88,7 @@
     position: fixed;
     transition: 1s ease-in all;
   }
-  .navbar div.category ul {
+  .navbar div.genre ul {
     color: #5d595a;
     width: 100%;
   }

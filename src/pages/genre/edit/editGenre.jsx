@@ -5,8 +5,8 @@ import axios from 'axios'
 
 import style from './style.module.css'
 
-export default function EditCategory () {
-  const [category, setCategory] = useState({})
+export default function Editgenre () {
+  const [genre, setgenre] = useState({})
   const [ResponseMessage, setResponseMessage] = useState('')
 
   const location = useLocation()
@@ -16,9 +16,9 @@ export default function EditCategory () {
   useEffect(() => {
     const getAuthorData = async () => {
       const result = await axios.get(
-        `${process.env.REACT_APP_SERVER_LINK}/api/v1/Category/${id}`
+        `${process.env.REACT_APP_SERVER_LINK}/api/v1/genre/${id}`
       )
-      setCategory(result.data)
+      setgenre(result.data)
     }
 
     getAuthorData()
@@ -33,7 +33,7 @@ export default function EditCategory () {
 
     try {
       await axios.put(
-        `${process.env.REACT_APP_SERVER_LINK}/admin/category/${id}`,
+        `${process.env.REACT_APP_SERVER_LINK}/admin/genre/${id}`,
         formData,
         { withCredentials: true }
       )
@@ -51,10 +51,10 @@ export default function EditCategory () {
   }
 
   return (
-    <section className={style.editCategory}>
+    <section className={style.editgenre}>
       <header className={style.header}>
         <Link
-          to={{ pathname: '/authors/profile', search: `?id=${category._id}` }}
+          to={{ pathname: '/authors/profile', search: `?id=${genre._id}` }}
           className={style.backB + ' button white b-purple'}
         >
           <BsArrowBarLeft />
@@ -69,7 +69,7 @@ export default function EditCategory () {
             name='name'
             id='name'
             placeholder='ex. Self Development'
-            defaultValue={category.name}
+            defaultValue={genre.name}
             required
           />
         </label>
@@ -79,7 +79,7 @@ export default function EditCategory () {
             type='text'
             name='description'
             placeholder='ex. books to improve your self and your life style'
-            defaultValue={category.description}
+            defaultValue={genre.description}
             id='description'
           />
         </label>

@@ -4,12 +4,15 @@ import { useTable } from 'react-table'
 import { BsFillSendFill } from 'react-icons/bs'
 import axios from 'axios'
 
+import LoadingAnimation from '../../../elements/loadingAnimation/Loading'
+
 import style from './style.module.css'
 
 export default function Index () {
   const navigate = useNavigate
   const [books, setBooks] = useState([])
   const [supplies, setSupplies] = useState([{}])
+  const [isLoading, setIsLoading] = useState(true)
 
   const columns = useMemo(
     () => [
@@ -34,34 +37,60 @@ export default function Index () {
   )
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/books`)
-      .then(result => {
-        console.log(result.data)
-        setBooks(result.data)
-      })
-      .catch(err => {
-        console.log(err)
-        if (err.response?.status === 511) {
+    const getData = async () => {
+      try {
+        const booksResult = await axios.get(
+          `${process.env.REACT_APP_SERVER_LINK}/api/v1/books`
+        )
+        setBooks(booksResult.data)
+
+        const suppliesResult = await axios.get(
+          `${process.env.REACT_APP_SERVER_LINK}/admin/supply`,
+          {
+            withCredentials: true
+          }
+        )
+        setSupplies(suppliesResult.data)
+      } catch (error) {
+        if (error.response?.status === 511) {
           navigate('/logout')
         }
-      })
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
-    axios
-      .get(`${process.env.REACT_APP_SERVER_LINK}/admin/supply`, {
-        withCredentials: true
-      })
-      .then(result => {
-        setSupplies(result.data)
-      })
-      .catch(err => {})
+    getData();
+    // axios
+    //   .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/books`)
+    //   .then(result => {
+    //     console.log(result.data)
+    //     setBooks(result.data)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //     if (err.response?.status === 511) {
+    //       navigate('/logout')
+    //     }
+    //   })
+
+    // axios
+    //   .get(`${process.env.REACT_APP_SERVER_LINK}/admin/supply`, {
+    //     withCredentials: true
+    //   })
+    //   .then(result => {
+    //     setSupplies(result.data)
+    //   })
+    //   .catch(err => {})
   }, [navigate])
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: supplies })
-  
-  console.log(supplies);
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data: supplies })
+
+  console.log(supplies)
   return (
     <section className={style.books}>
+      {isLoading && <LoadingAnimation darkbackground />}
       <header>
         <p className={style.title}>Books</p>
         <Link to={'new'} className={style.navB + ' button white bold'}>
@@ -126,7 +155,9 @@ export default function Index () {
                               </div>
                             ) : cell.column.Header === 'View' ? (
                               <div>
-                                <Link to={`/supply/Preview?id=${cell.value}`}><BsFillSendFill /></Link>
+                                <Link to={`/supply/Preview?id=${cell.value}`}>
+                                  <BsFillSendFill />
+                                </Link>
                               </div>
                             ) : (
                               <div>{cell.render('Cell')}</div>

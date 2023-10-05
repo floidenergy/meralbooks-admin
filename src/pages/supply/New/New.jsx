@@ -17,6 +17,8 @@ export default function New () {
 
   const [resMsg, setResMsg] = useState("");
 
+  // TODO: add the change buying coast and and put the total coast for books and the whole supply
+
   const columns = useMemo(
     () => [
       {

@@ -22,7 +22,7 @@ function New () {
 
           try {
             const response = await axios.post(
-              `${process.env.REACT_APP_SERVER_LINK}/admin/category`,
+              `${process.env.REACT_APP_SERVER_LINK}/admin/genre`,
               formData,
               { withCredentials: true }
             )

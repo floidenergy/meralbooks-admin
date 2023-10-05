@@ -37,7 +37,7 @@ function UpdateBook () {
         setBook(result.data)
         setBookPic(result.data.img)
         setCategories(
-          result.data.category.map(cat => {
+          result.data.genre.map(cat => {
             return { value: cat?._id, label: cat?.name }
           })
         )
@@ -59,7 +59,7 @@ function UpdateBook () {
       })
 
     axios
-      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/category`)
+      .get(`${process.env.REACT_APP_SERVER_LINK}/api/v1/genre`)
       .then(result => setCategoriesData(result.data))
 
     axios
@@ -72,7 +72,7 @@ function UpdateBook () {
       setBookPic(URL.createObjectURL(e.target.files[0]))
   }
 
-  // TODO: on submit success turn into profile
+
   const handleSubmit = async e => {
     e.preventDefault()
     setIsLoading(true)
@@ -84,7 +84,7 @@ function UpdateBook () {
     categories
       .map(c => c.value)
       .forEach((c, index) => {
-        formData.append(`category[${index}]`, c)
+        formData.append(`genre[${index}]`, c)
       })
 
     try {
@@ -161,7 +161,7 @@ function UpdateBook () {
               <div className={style.categories}>
                 <p className={style.label}>Categories</p>
                 <Select
-                  placeholder={'Select Category'}
+                  placeholder={'Select genre'}
                   Options={categoriesData.map(ct => {
                     return { value: ct._id, label: ct.name }
                   })}
